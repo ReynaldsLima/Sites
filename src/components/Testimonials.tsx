@@ -1,21 +1,21 @@
+// PLACEHOLDER: depoimentos fictícios. Substitua por relatos reais e
+// autorizados antes de publicar — confira também as regras de publicidade
+// da OAB (Provimento 205/2021) sobre uso de depoimentos de clientes.
 const TESTIMONIALS = [
   {
-    quote:
-      "A equipe da Barra Advogados conduziu meu processo trabalhista com muita competência e transparência. Fui informado em cada etapa.",
-    name: "Marcos Oliveira",
-    role: "Cliente pessoa física",
+    quote: "[Inserir depoimento real do cliente aqui]",
+    name: "[Nome do cliente]",
+    role: "[Relação com o escritório]",
   },
   {
-    quote:
-      "Contratamos a assessoria empresarial para reestruturar nossos contratos e o resultado superou as expectativas. Recomendo fortemente.",
-    name: "Fernanda Costa",
-    role: "Diretora, Costa Comércio Ltda.",
+    quote: "[Inserir depoimento real do cliente aqui]",
+    name: "[Nome do cliente]",
+    role: "[Relação com o escritório]",
   },
   {
-    quote:
-      "Atendimento humano e atencioso durante todo o processo de divórcio. Me senti amparada em um momento difícil.",
-    name: "Juliana Alves",
-    role: "Cliente pessoa física",
+    quote: "[Inserir depoimento real do cliente aqui]",
+    name: "[Nome do cliente]",
+    role: "[Relação com o escritório]",
   },
 ];
 

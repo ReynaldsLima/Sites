@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
   { href: "#sobre", label: "Sobre" },
@@ -11,6 +11,15 @@ const NAV_LINKS = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur">
@@ -47,7 +56,7 @@ export default function Header() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           className="inline-flex cursor-pointer items-center justify-center rounded-md p-2 text-foreground md:hidden"
-          aria-label="Abrir menu"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
         >
           <svg

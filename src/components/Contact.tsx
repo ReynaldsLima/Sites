@@ -58,7 +58,11 @@ export default function Contact() {
 
         <div className="rounded-xl bg-white p-6 sm:p-8">
           {sent ? (
-            <div className="flex h-full flex-col items-center justify-center gap-2 py-12 text-center">
+            <div
+              role="status"
+              aria-live="polite"
+              className="flex h-full flex-col items-center justify-center gap-2 py-12 text-center"
+            >
               <p className="text-lg font-semibold text-foreground">
                 Mensagem enviada!
               </p>

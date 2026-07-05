@@ -1,7 +1,8 @@
+// PLACEHOLDER: substitua pelos números reais do escritório antes de publicar.
 const STATS = [
-  { value: "15+", label: "Anos de experiência" },
-  { value: "1.200+", label: "Casos atendidos" },
-  { value: "98%", label: "Clientes satisfeitos" },
+  { value: "[X]+", label: "Anos de experiência" },
+  { value: "[X]+", label: "Casos atendidos" },
+  { value: "[X]%", label: "Clientes satisfeitos" },
   { value: "6", label: "Áreas de atuação" },
 ];
 
