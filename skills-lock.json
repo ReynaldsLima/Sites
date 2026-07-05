@@ -13,6 +13,12 @@
       "skillPath": "plugins/stitch-utilities/skills/enhance-prompt/SKILL.md",
       "computedHash": "71cc23e9ec5fc6361e12453495fa8c683f6cf26f3efaf9b230b0f43e0a32cc96"
     },
+    "frontend-design": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "skillPath": "skills/frontend-design/SKILL.md",
+      "computedHash": "4eabc66183767153e404b39d1b839b1c37f2d82d86f0a0d7e880a579d8d62336"
+    },
     "remotion": {
       "source": "google-labs-code/stitch-skills",
       "sourceType": "github",
