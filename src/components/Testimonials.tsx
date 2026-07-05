@@ -23,10 +23,10 @@ export default function Testimonials() {
   return (
     <section id="depoimentos" className="mx-auto max-w-6xl px-6 py-24">
       <div className="max-w-2xl">
-        <span className="text-sm font-semibold uppercase tracking-widest text-amber-700">
+        <span className="text-sm font-semibold uppercase tracking-widest text-accent">
           Depoimentos
         </span>
-        <h2 className="mt-3 text-3xl font-semibold text-slate-900 sm:text-4xl">
+        <h2 className="mt-3 text-3xl font-semibold text-foreground sm:text-4xl">
           O que nossos clientes dizem
         </h2>
       </div>
@@ -35,14 +35,16 @@ export default function Testimonials() {
         {TESTIMONIALS.map((item) => (
           <figure
             key={item.name}
-            className="flex flex-col justify-between rounded-xl border border-slate-200 bg-slate-50 p-6"
+            className="flex flex-col justify-between rounded-xl border border-border bg-muted p-6"
           >
-            <blockquote className="text-slate-700">
+            <blockquote className="text-foreground">
               &ldquo;{item.quote}&rdquo;
             </blockquote>
             <figcaption className="mt-6">
-              <div className="font-semibold text-slate-900">{item.name}</div>
-              <div className="text-sm text-slate-500">{item.role}</div>
+              <div className="font-semibold text-foreground">
+                {item.name}
+              </div>
+              <div className="text-sm text-muted-foreground">{item.role}</div>
             </figcaption>
           </figure>
         ))}

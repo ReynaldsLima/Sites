@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-slate-900 text-white"
+      className="relative overflow-hidden bg-primary text-white"
     >
       <div
         aria-hidden
@@ -14,7 +14,7 @@ export default function Hero() {
       />
 
       <div className="relative mx-auto flex max-w-6xl flex-col items-start gap-6 px-6 py-28 sm:py-36">
-        <span className="rounded-full border border-amber-600/40 bg-amber-600/10 px-4 py-1 text-xs font-medium uppercase tracking-widest text-amber-500">
+        <span className="rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-1 text-xs font-medium uppercase tracking-widest text-amber-300">
           Advocacia especializada
         </span>
 
@@ -22,7 +22,7 @@ export default function Hero() {
           Defendendo seus direitos com ética, agilidade e resultado.
         </h1>
 
-        <p className="max-w-xl text-lg text-slate-300">
+        <p className="max-w-xl text-lg text-slate-200">
           A Barra Advogados oferece assessoria jurídica completa para pessoas
           físicas e empresas, com atendimento próximo e soluções sob medida
           para cada caso.
@@ -31,13 +31,13 @@ export default function Hero() {
         <div className="flex flex-wrap gap-4 pt-4">
           <a
             href="#contato"
-            className="rounded-md bg-amber-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-600"
+            className="cursor-pointer rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-amber-600"
           >
             Agende uma consulta
           </a>
           <a
             href="#servicos"
-            className="rounded-md border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+            className="cursor-pointer rounded-md border border-white/30 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
           >
             Conheça nossos serviços
           </a>

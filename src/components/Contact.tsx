@@ -30,16 +30,16 @@ export default function Contact() {
   }
 
   return (
-    <section id="contato" className="bg-slate-900 py-24 text-white">
+    <section id="contato" className="bg-primary py-24 text-white">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2">
         <div>
-          <span className="text-sm font-semibold uppercase tracking-widest text-amber-500">
+          <span className="text-sm font-semibold uppercase tracking-widest text-amber-300">
             Contato
           </span>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
             Vamos conversar sobre o seu caso
           </h2>
-          <p className="mt-4 text-slate-300">
+          <p className="mt-4 text-slate-200">
             Preencha o formulário ou utilize um dos canais abaixo. Retornamos
             em até um dia útil.
           </p>
@@ -59,10 +59,10 @@ export default function Contact() {
         <div className="rounded-xl bg-white p-6 sm:p-8">
           {sent ? (
             <div className="flex h-full flex-col items-center justify-center gap-2 py-12 text-center">
-              <p className="text-lg font-semibold text-slate-900">
+              <p className="text-lg font-semibold text-foreground">
                 Mensagem enviada!
               </p>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-muted-foreground">
                 Obrigado pelo contato. Retornaremos em breve.
               </p>
             </div>
@@ -71,7 +71,7 @@ export default function Contact() {
               <div>
                 <label
                   htmlFor="name"
-                  className="mb-1 block text-sm font-medium text-slate-700"
+                  className="mb-1 block text-sm font-medium text-foreground"
                 >
                   Nome
                 </label>
@@ -80,14 +80,14 @@ export default function Contact() {
                   name="name"
                   type="text"
                   required
-                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600"
+                  className="w-full rounded-md border border-border px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="email"
-                  className="mb-1 block text-sm font-medium text-slate-700"
+                  className="mb-1 block text-sm font-medium text-foreground"
                 >
                   E-mail
                 </label>
@@ -96,14 +96,14 @@ export default function Contact() {
                   name="email"
                   type="email"
                   required
-                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600"
+                  className="w-full rounded-md border border-border px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="phone"
-                  className="mb-1 block text-sm font-medium text-slate-700"
+                  className="mb-1 block text-sm font-medium text-foreground"
                 >
                   Telefone
                 </label>
@@ -111,14 +111,14 @@ export default function Contact() {
                   id="phone"
                   name="phone"
                   type="tel"
-                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600"
+                  className="w-full rounded-md border border-border px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="mb-1 block text-sm font-medium text-slate-700"
+                  className="mb-1 block text-sm font-medium text-foreground"
                 >
                   Mensagem
                 </label>
@@ -127,13 +127,13 @@ export default function Contact() {
                   name="message"
                   rows={4}
                   required
-                  className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm text-slate-900 focus:border-amber-600 focus:outline-none focus:ring-1 focus:ring-amber-600"
+                  className="w-full rounded-md border border-border px-3 py-2 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full rounded-md bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-amber-700"
+                className="w-full cursor-pointer rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition hover:bg-accent"
               >
                 Enviar mensagem
               </button>

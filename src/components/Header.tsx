@@ -13,13 +13,13 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#top" className="flex items-baseline gap-2">
-          <span className="text-xl font-semibold tracking-tight text-slate-900">
+          <span className="font-serif text-xl font-semibold tracking-tight text-primary">
             Barra
           </span>
-          <span className="text-xl font-light tracking-tight text-amber-700">
+          <span className="font-serif text-xl font-light tracking-tight text-accent">
             Advogados
           </span>
         </a>
@@ -29,7 +29,7 @@ export default function Header() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-slate-600 transition hover:text-amber-700"
+              className="text-sm font-medium text-muted-foreground transition hover:text-accent"
             >
               {link.label}
             </a>
@@ -38,7 +38,7 @@ export default function Header() {
 
         <a
           href="#contato"
-          className="hidden rounded-md bg-slate-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-amber-700 md:inline-block"
+          className="hidden cursor-pointer rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:bg-accent md:inline-block"
         >
           Fale Conosco
         </a>
@@ -46,7 +46,7 @@ export default function Header() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="inline-flex items-center justify-center rounded-md p-2 text-slate-700 md:hidden"
+          className="inline-flex cursor-pointer items-center justify-center rounded-md p-2 text-foreground md:hidden"
           aria-label="Abrir menu"
           aria-expanded={open}
         >
@@ -77,13 +77,13 @@ export default function Header() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-slate-200 bg-white px-6 py-4 md:hidden">
+        <nav className="flex flex-col gap-1 border-t border-border bg-white px-6 py-4 md:hidden">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-md px-2 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-amber-700"
+              className="rounded-md px-2 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-accent"
             >
               {link.label}
             </a>
@@ -91,7 +91,7 @@ export default function Header() {
           <a
             href="#contato"
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-md bg-slate-900 px-4 py-2.5 text-center text-sm font-medium text-white"
+            className="mt-2 cursor-pointer rounded-md bg-primary px-4 py-2.5 text-center text-sm font-medium text-primary-foreground"
           >
             Fale Conosco
           </a>
