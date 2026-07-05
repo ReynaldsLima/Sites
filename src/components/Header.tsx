@@ -24,11 +24,12 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-baseline gap-2">
+        <a href="#top" className="flex items-center gap-2.5">
           <span className="font-serif text-xl font-semibold tracking-tight text-primary">
             Barra
           </span>
-          <span className="font-serif text-xl font-light tracking-tight text-accent">
+          <span className="h-4 w-[3px] rounded-full bg-accent" aria-hidden />
+          <span className="font-serif text-xl font-light tracking-tight text-primary">
             Advogados
           </span>
         </a>
