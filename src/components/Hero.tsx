@@ -1,3 +1,5 @@
+import StatuteMark from "./StatuteMark";
+
 const HEADLINE_WORDS = [
   { text: "Defendendo" },
   { text: "seus" },
@@ -71,15 +73,14 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Glass panel: the "§" (section sign) is the mark lawyers write by hand
-            on every statute reference — used here as the hero's signature. */}
+        {/* Glass panel: an annotated statute page — the "§" mark sits in the
+            margin next to its article text, exactly as it does in a real
+            legal codex. */}
         <div
           aria-hidden
-          className="animate-rise-in hero-delay-300 relative hidden h-72 w-64 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl backdrop-blur-xl lg:flex"
+          className="animate-rise-in hero-delay-300 relative hidden h-72 w-64 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-white/10 p-6 shadow-2xl backdrop-blur-xl lg:flex"
         >
-          <span className="font-serif text-[11rem] leading-none text-white/25">
-            §
-          </span>
+          <StatuteMark />
         </div>
       </div>
     </section>
