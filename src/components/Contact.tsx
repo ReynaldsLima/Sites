@@ -33,13 +33,13 @@ export default function Contact() {
     <section id="contato" className="bg-primary py-24 text-white">
       <div className="mx-auto grid max-w-6xl gap-12 px-6 md:grid-cols-2">
         <div>
-          <span className="text-sm font-semibold uppercase tracking-widest text-amber-300">
+          <span className="text-sm font-semibold uppercase tracking-widest text-accent-on-dark">
             Contato
           </span>
           <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
             Vamos conversar sobre o seu caso
           </h2>
-          <p className="mt-4 text-slate-200">
+          <p className="mt-4 text-stone-300">
             Preencha o formulário ou utilize um dos canais abaixo. Retornamos
             em até um dia útil.
           </p>
@@ -47,10 +47,10 @@ export default function Contact() {
           <dl className="mt-8 space-y-4">
             {INFO.map((item) => (
               <div key={item.label} className="flex flex-col">
-                <dt className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+                <dt className="text-xs font-semibold uppercase tracking-widest text-stone-400">
                   {item.label}
                 </dt>
-                <dd className="text-slate-100">{item.value}</dd>
+                <dd className="text-stone-100">{item.value}</dd>
               </div>
             ))}
           </dl>

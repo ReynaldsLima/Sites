@@ -6,8 +6,8 @@ export default function Hero() {
     >
       {/* Ambient light drifting behind the glass, like sun through forum windows. */}
       <div aria-hidden className="pointer-events-none absolute inset-0">
-        <div className="animate-hero-drift-a absolute -top-24 right-[-10%] h-96 w-96 rounded-full bg-accent/40 blur-3xl" />
-        <div className="animate-hero-drift-b absolute bottom-[-20%] right-[10%] h-80 w-80 rounded-full bg-amber-300/20 blur-3xl" />
+        <div className="animate-hero-drift-a absolute -top-24 right-[-10%] h-96 w-96 rounded-full bg-accent/30 blur-3xl" />
+        <div className="animate-hero-drift-b absolute bottom-[-20%] right-[10%] h-80 w-80 rounded-full bg-accent-on-dark/20 blur-3xl" />
       </div>
 
       <div className="relative mx-auto grid max-w-6xl gap-10 px-6 py-28 sm:py-36 lg:grid-cols-[1fr_auto] lg:items-center">
@@ -16,7 +16,7 @@ export default function Hero() {
           <div className="rounded-full bg-accent" aria-hidden />
 
           <div className="flex flex-col items-start gap-6">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-amber-300">
+            <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-on-dark">
               Advocacia especializada
             </span>
 
@@ -25,7 +25,7 @@ export default function Hero() {
               agilidade e resultado.
             </h1>
 
-            <p className="max-w-xl text-lg text-slate-200">
+            <p className="max-w-xl text-lg text-stone-300">
               A Barra Advogados oferece assessoria jurídica completa para
               pessoas físicas e empresas, com atendimento próximo e soluções
               sob medida para cada caso.
@@ -34,7 +34,7 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4 pt-4">
               <a
                 href="#contato"
-                className="cursor-pointer rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-amber-600"
+                className="cursor-pointer rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent/90"
               >
                 Agende uma consulta
               </a>

@@ -2,12 +2,13 @@
 
 ## 1. Visual Theme & Atmosphere
 
-A restrained, "Trust & Authority" interface for a law firm: confident navy
-surfaces, a single warm gold accent, and serif headlines that read as
-tradition and credibility rather than trend. Density is calm and
-editorial — generous whitespace, low motion, nothing that competes with the
-text. The atmosphere should feel like a well-run law office: composed,
-legible, unhurried.
+A sober "Law Library" interface: warm parchment paper, deep library-green
+surfaces, and aged brass accents — the physical vocabulary of bound
+statute volumes and legislative archives, not a bright corporate
+blue/orange palette. Serif headlines read as tradition and credibility.
+Density is calm and editorial — generous whitespace, low motion, nothing
+that competes with the text. The atmosphere should feel like a well-run
+law office: composed, legible, unhurried.
 
 Note: this project deliberately breaks from generic "anti-AI-slop" serif
 bans. A traditional serif headline is a considered choice for legal
@@ -17,24 +18,33 @@ than swapped for a "distinctive" display serif.
 
 ## 2. Color Palette & Roles
 
-- **Authority Navy** (`#1E3A8A`, token `--color-primary`) — Header CTA, hero
-  and contact section backgrounds, form focus rings
-- **Navy Ink** (`#1E40AF`, token `--color-secondary`) — reserved secondary
+- **Library Green** (`#1F3A2E`, token `--color-primary`) — Header CTA, hero
+  and contact section backgrounds, form focus rings. A deep, muted forest
+  green rather than a bright corporate blue.
+- **Green Ink** (`#2C4A3E`, token `--color-secondary`) — reserved secondary
   brand tone, not yet used in a component
-- **Trust Gold** (`#B45309`, token `--color-accent`) — the single accent:
-  primary CTA buttons, nav hover state, section eyebrows
-- **Canvas** (`#F8FAFC`, token `--color-background`) — page background
-- **Ink** (`#0F172A`, token `--color-foreground`) — body text, headings
-- **Mist** (`#E9EEF5`, token `--color-muted`) — card/section fill (stats,
-  service cards, testimonials)
-- **Slate Border** (`#CBD5E1`, token `--color-border`) — 1px structural
+- **Aged Brass** (`#7C5A17`, token `--color-accent`) — the single accent:
+  primary CTA buttons, nav hover state, section eyebrows. Verified 4.5:1+
+  on both parchment and white.
+- **Brass on Dark** (`#D4B966`, token `--color-accent-on-dark`) — the same
+  accent lifted for use as text/badges on the dark green sections (hero,
+  contact) where the base accent wouldn't read clearly
+- **Parchment** (`#F5F1E8`, token `--color-background`) — page background,
+  evoking aged legal paper rather than a cool SaaS gray
+- **Ink** (`#1C1917`, token `--color-foreground`) — body text, headings —
+  warm near-black rather than cool slate
+- **Parchment Shade** (`#EAE3D3`, token `--color-muted`) — card/section fill
+  (stats, service cards, testimonials)
+- **Parchment Border** (`#D8CFB8`, token `--color-border`) — 1px structural
   lines on cards and dividers
-- **Alert Red** (`#DC2626`, token `--color-destructive`) — reserved for
-  form/validation errors, not yet wired into a component
-- **Focus Ring** = Authority Navy (`--color-ring`) — used site-wide via the
+- **Brick Red** (`#8C2A26`, token `--color-destructive`) — reserved for
+  form/validation errors, not yet wired into a component. Deliberately a
+  muted brick tone, not a bright alert red.
+- **Focus Ring** = Library Green (`--color-ring`) — used site-wide via the
   global `:focus-visible` rule
 
-Max one accent (gold), used sparingly for interactive/emphasis elements only.
+Max one accent (brass), used sparingly for interactive/emphasis elements
+only. All pairs verified against WCAG AA (4.5:1) before adoption.
 
 ## 3. Typography Rules
 

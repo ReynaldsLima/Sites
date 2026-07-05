@@ -1,18 +1,22 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
-  --primary: #1e3a8a;
+  /* "Law library" palette: parchment paper, deep library-green, aged brass —
+     sober and grounded in the physical vocabulary of statutes and bound
+     law volumes, rather than a bright corporate blue/orange. */
+  --background: #f5f1e8;
+  --foreground: #1c1917;
+  --primary: #1f3a2e;
   --primary-foreground: #ffffff;
-  --secondary: #1e40af;
-  --accent: #b45309;
+  --secondary: #2c4a3e;
+  --accent: #7c5a17;
   --accent-foreground: #ffffff;
-  --muted: #e9eef5;
-  --muted-foreground: #475569;
-  --border: #cbd5e1;
-  --destructive: #dc2626;
-  --ring: #1e3a8a;
+  --accent-on-dark: #d4b966;
+  --muted: #eae3d3;
+  --muted-foreground: #6b6355;
+  --border: #d8cfb8;
+  --destructive: #8c2a26;
+  --ring: #1f3a2e;
 }
 
 @theme inline {
@@ -28,6 +32,7 @@
   --color-border: var(--border);
   --color-destructive: var(--destructive);
   --color-ring: var(--ring);
+  --color-accent-on-dark: var(--accent-on-dark);
   --font-sans: var(--font-body);
   --font-serif: var(--font-heading);
 }
