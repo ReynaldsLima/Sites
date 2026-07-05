@@ -1,3 +1,14 @@
+const HEADLINE_WORDS = [
+  { text: "Defendendo" },
+  { text: "seus" },
+  { text: "direitos" },
+  { text: "com" },
+  { text: "ética,", italic: true },
+  { text: "agilidade" },
+  { text: "e" },
+  { text: "resultado." },
+];
+
 export default function Hero() {
   return (
     <section
@@ -16,22 +27,34 @@ export default function Hero() {
           <div className="rounded-full bg-accent" aria-hidden />
 
           <div className="flex flex-col items-start gap-6">
-            <span className="text-xs font-medium uppercase tracking-[0.2em] text-accent-on-dark">
+            <span className="animate-rise-in text-xs font-medium uppercase tracking-[0.2em] text-accent-on-dark">
               Advocacia especializada
             </span>
 
             <h1 className="max-w-2xl text-4xl font-semibold leading-tight sm:text-5xl">
-              Defendendo seus direitos com <em className="italic">ética</em>,
-              agilidade e resultado.
+              {HEADLINE_WORDS.flatMap((word, i) => {
+                const span = (
+                  <span
+                    key={`w-${i}`}
+                    className={`animate-rise-in inline-block ${word.italic ? "italic" : ""}`}
+                    style={{ animationDelay: `${120 + i * 45}ms` }}
+                  >
+                    {word.text}
+                  </span>
+                );
+                return i < HEADLINE_WORDS.length - 1
+                  ? [span, " "]
+                  : [span];
+              })}
             </h1>
 
-            <p className="max-w-xl text-lg text-stone-300">
+            <p className="animate-rise-in hero-delay-550 max-w-xl text-lg text-stone-300">
               A Barra Advogados oferece assessoria jurídica completa para
               pessoas físicas e empresas, com atendimento próximo e soluções
               sob medida para cada caso.
             </p>
 
-            <div className="flex flex-wrap gap-4 pt-4">
+            <div className="animate-rise-in hero-delay-680 flex flex-wrap gap-4 pt-4">
               <a
                 href="#contato"
                 className="cursor-pointer rounded-md bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition hover:bg-accent/90"
@@ -52,7 +75,7 @@ export default function Hero() {
             on every statute reference — used here as the hero's signature. */}
         <div
           aria-hidden
-          className="relative hidden h-72 w-64 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl backdrop-blur-xl lg:flex"
+          className="animate-rise-in hero-delay-300 relative hidden h-72 w-64 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-white/15 bg-white/10 shadow-2xl backdrop-blur-xl lg:flex"
         >
           <span className="font-serif text-[11rem] leading-none text-white/25">
             §
