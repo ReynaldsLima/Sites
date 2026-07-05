@@ -18,10 +18,12 @@ export default function About() {
             Tradição jurídica com uma visão moderna
           </h2>
           <p className="mt-5 text-muted-foreground">
-            A Barra Advogados nasceu do compromisso de oferecer um serviço
-            jurídico transparente, técnico e humano. Nossa equipe acompanha de
-            perto cada cliente, traduzindo a complexidade do Direito em
-            decisões claras e seguras.
+            A Barra Advogados nasceu do compromisso de oferecer um serviço{" "}
+            <span className="font-semibold text-accent">
+              transparente, técnico e humano
+            </span>
+            . Nossa equipe acompanha de perto cada cliente, traduzindo a
+            complexidade do Direito em decisões claras e seguras.
           </p>
           <p className="mt-4 text-muted-foreground">
             Atuamos em todo o território nacional, combinando experiência
@@ -30,16 +32,13 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10">
           {STATS.map((stat) => (
-            <div
-              key={stat.label}
-              className="rounded-xl border border-border bg-muted p-6 text-center"
-            >
-              <div className="font-serif text-3xl font-semibold text-foreground">
+            <div key={stat.label}>
+              <div className="font-serif text-4xl font-semibold text-foreground">
                 {stat.value}
               </div>
-              <div className="mt-1 text-sm text-muted-foreground">
+              <div className="mt-3 border-t border-border pt-2 text-sm text-muted-foreground">
                 {stat.label}
               </div>
             </div>

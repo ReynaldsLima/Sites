@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
-import Testimonials from "@/components/Testimonials";
+import Recognition from "@/components/Recognition";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -20,7 +20,7 @@ export default function Home() {
           <Services />
         </ScrollReveal>
         <ScrollReveal>
-          <Testimonials />
+          <Recognition />
         </ScrollReveal>
         <ScrollReveal>
           <Contact />
