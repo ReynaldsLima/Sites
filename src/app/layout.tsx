@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { EB_Garamond, Lato } from "next/font/google";
 import "./globals.css";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const ebGaramond = EB_Garamond({
   variable: "--font-heading",
@@ -39,6 +40,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
