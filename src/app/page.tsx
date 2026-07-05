@@ -5,6 +5,7 @@ import Services from "@/components/Services";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
@@ -12,10 +13,18 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
-        <About />
-        <Services />
-        <Testimonials />
-        <Contact />
+        <ScrollReveal>
+          <About />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Services />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Testimonials />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Contact />
+        </ScrollReveal>
       </main>
       <Footer />
     </>
