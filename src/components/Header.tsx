@@ -22,8 +22,8 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
         <a href="#top" className="flex items-center gap-2.5">
           <span className="font-serif text-xl font-semibold tracking-tight text-primary">
             Barra
@@ -34,21 +34,25 @@ export default function Header() {
           </span>
         </a>
 
-        <nav className="hidden gap-8 md:flex">
+        <nav className="hidden gap-10 md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground transition hover:text-accent"
+              className="group relative py-1 text-[13px] font-semibold uppercase tracking-[0.08em] text-muted-foreground transition-colors hover:text-accent"
             >
               {link.label}
+              <span
+                aria-hidden
+                className="absolute inset-x-0 -bottom-0.5 h-px origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100"
+              />
             </a>
           ))}
         </nav>
 
         <a
           href="#contato"
-          className="hidden cursor-pointer rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition hover:bg-accent md:inline-block"
+          className="hidden cursor-pointer rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-accent md:inline-block"
         >
           Fale Conosco
         </a>
@@ -86,14 +90,21 @@ export default function Header() {
         </button>
       </div>
 
-      {open && (
-        <nav className="flex flex-col gap-1 border-t border-border bg-white px-6 py-4 md:hidden">
+      <div
+        className={`grid transition-[grid-template-rows] duration-300 ease-out md:hidden ${
+          open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <nav
+          inert={!open}
+          className="flex flex-col gap-1 overflow-hidden border-t border-border bg-background px-6 py-4"
+        >
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
-              className="rounded-md px-2 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-accent"
+              className="rounded-md border-l-2 border-transparent py-2 pl-3 text-sm font-semibold uppercase tracking-[0.08em] text-muted-foreground transition hover:border-accent hover:bg-muted hover:text-accent"
             >
               {link.label}
             </a>
@@ -101,12 +112,12 @@ export default function Header() {
           <a
             href="#contato"
             onClick={() => setOpen(false)}
-            className="mt-2 cursor-pointer rounded-md bg-primary px-4 py-2.5 text-center text-sm font-medium text-primary-foreground"
+            className="mt-2 cursor-pointer rounded-md bg-primary px-4 py-2.5 text-center text-sm font-semibold text-primary-foreground"
           >
             Fale Conosco
           </a>
         </nav>
-      )}
+      </div>
     </header>
   );
 }
