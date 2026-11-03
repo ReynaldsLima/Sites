@@ -340,44 +340,6 @@
   }
 }
 </style>
-<style data-8b-part="section:tune">
-@layer sections {
-  #tune { position: relative; isolation: isolate; color: var(--color-1); padding-block: clamp(4rem, 8vw, 7rem) var(--space-2); }
-  #tune > :not(.tune__sheet) { position: relative; z-index: 1; }
-  #tune .tune__stage { position: relative; z-index: 2; container-type: inline-size; padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1.25rem, 3.5vw, 3rem) clamp(1.75rem, 4.5vw, 3.75rem); border-radius: var(--radius-2); background: var(--color-1); color: var(--color-2); transform-origin: 50% 50%; }
-  #tune .tune__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; color: color-mix(in srgb, currentColor 72%, transparent); }
-  #tune .tune__meta span:first-child { display: inline-flex; align-items: center; gap: 0.5rem; }
-  #tune .tune__meta i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--color-4); }
-  #tune .tune__sample { margin-top: clamp(2rem, 7vw, 5.5rem); }
-  #tune .tune__line { display: block; width: max-content; white-space: nowrap; font-size: min(13rem, 100cqi / (var(--len) * 0.49)); line-height: 0.98; transform-origin: 0% 100%; }
-  #tune .tune__body { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 2.5rem 5rem; margin-top: clamp(3.5rem, 7vw, 6rem); }
-  #tune .tune__head { display: grid; gap: 1.5rem; align-content: start; }
-  #tune .tune__head .m-text-4 { color: var(--color-5); max-width: 26rem; }
-  #tune .tune__settings { border-top: 0.0625rem solid color-mix(in srgb, var(--color-1) 16%, transparent); }
-  #tune .tune__row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0.25rem 2rem; padding-block: 1.125rem; border-bottom: 0.0625rem solid color-mix(in srgb, var(--color-1) 16%, transparent); }
-  #tune .tune__row .m-text-8 { grid-column: 1; color: var(--color-5); }
-  #tune .tune__ctl { grid-column: 2; grid-row: 1 / span 2; }
-  #tune .tune__slider { position: relative; width: 8.5rem; height: 0.375rem; border-radius: var(--radius-3); background: color-mix(in srgb, var(--color-1) 14%, transparent); }
-  #tune .tune__fill { position: absolute; inset: 0; border-radius: inherit; background: var(--color-4); transform-origin: 0% 50%; }
-  #tune .tune__thumb { position: absolute; top: 50%; width: 1.25rem; height: 1.25rem; margin: -0.625rem 0 0 -0.625rem; border-radius: 50%; background: var(--color-1); box-shadow: var(--shadow-1); }
-  #tune [data-ctl="size"] .tune__fill { transform: scaleX(0.75); }
-  #tune [data-ctl="size"] .tune__thumb { left: 75%; }
-  #tune [data-ctl="weight"] .tune__fill { transform: scaleX(0.6); }
-  #tune [data-ctl="weight"] .tune__thumb { left: 60%; }
-  #tune .tune__seg { position: relative; display: grid; grid-template-columns: 1fr 1fr; padding: 0.25rem; border-radius: var(--radius-3); background: color-mix(in srgb, var(--color-1) 10%, transparent); font-size: 0.8125rem; font-weight: 600; }
-  #tune .tune__seg span { position: relative; z-index: 1; padding: 0.375rem 0.875rem; text-align: center; }
-  #tune .tune__seg span:last-child { color: var(--color-2); }
-  #tune .tune__pill { position: absolute; top: 0.25rem; bottom: 0.25rem; left: 50%; width: calc(50% - 0.25rem); border-radius: var(--radius-3); background: var(--color-1); }
-  #tune .tune__toggle { position: relative; width: 2.75rem; height: 1.5rem; border-radius: var(--radius-3); background: var(--color-4); }
-  #tune .tune__toggle::after { content: ""; position: absolute; top: 0.1875rem; right: 0.1875rem; width: 1.125rem; height: 1.125rem; border-radius: 50%; background: var(--color-1); }
-  #tune .tune__tag { padding: 0.375rem 0.75rem; border-radius: var(--radius-3); background: var(--color-2); font-size: 0.8125rem; font-weight: 600; }
-  @media (max-width: 47.99rem) {
-    #tune .tune__body { grid-template-columns: 1fr; }
-    #tune .tune__slider { width: 6rem; }
-    #tune .tune__row { gap: 0.25rem 1.25rem; }
-  }
-}
-</style>
 <style data-8b-part="section:rooms">
 @layer sections {
   #rooms { position: relative; isolation: isolate; overflow-x: clip; color: var(--color-2); padding-top: var(--space-2); }
@@ -668,37 +630,6 @@
 }
 }
 </style>
-<style data-8b-part="scene:tune">
-@layer scenes {
-[data-8b-live] #tune { view-timeline: --tune-t1 block; view-timeline-inset: 0; }
-[data-8b-live] #tune .tune__stage, [data-8b-live] #tune .tune__line, [data-8b-live] #tune .tune__slider > .tune__fill, [data-8b-live] #tune .tune__slider > .tune__thumb, [data-8b-live] #tune .tune__pill { animation-timeline: --tune-t1; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
-/* The re-set (top at 30% of the view to top at −45%, a timeline of 2.25): weight 300 → 800 → 600 and size up, the card flips dark at 1.05, sliders and the contrast pill move in step. */
-[data-8b-live] #tune .tune__stage { animation-name: tune-div-tune-stage-backgroundcolor, tune-div-tune-stage-color; animation-range: cover 105vh cover 115vh, cover 105vh cover 115vh; }
-[data-8b-live] #tune .tune__line { animation-name: tune-span-tune-line-fontvariationsettings, tune-span-tune-line-scale; animation-range: cover 70vh cover 145vh, cover 70vh cover 103.3333vh; }
-[data-8b-live] #tune [data-ctl="size"] > .tune__fill { animation-name: tune-span-tune-fill-scale; animation-range: cover 70vh cover 103.3333vh; }
-[data-8b-live] #tune [data-ctl="size"] > .tune__thumb { animation-name: tune-size-thumb; animation-range: cover 70vh cover 103.3333vh; }
-[data-8b-live] #tune [data-ctl="weight"] > .tune__fill { animation-name: tune-span-tune-fill-scale-2; animation-range: cover 70vh cover 145vh; }
-[data-8b-live] #tune [data-ctl="weight"] > .tune__thumb { animation-name: tune-weight-thumb; animation-range: cover 70vh cover 145vh; }
-[data-8b-live] #tune .tune__pill { animation-name: tune-b-tune-pill-translate; animation-range: cover 105vh cover 115vh; }
-@keyframes tune-span-tune-line-fontvariationsettings { 0% { font-variation-settings: "wght" 300; } 44.4444% { font-variation-settings: "wght" 800; } 64.4444% { font-variation-settings: "wght" 800; } 100% { font-variation-settings: "wght" 600; } }
-@keyframes tune-span-tune-line-scale { 0% { scale: 0.8; } 100% { scale: 1; } }
-@keyframes tune-span-tune-fill-scale { 0% { scale: 0.3 1; } 100% { scale: 0.75 1; } }
-@keyframes tune-span-tune-fill-scale-2 { 0% { scale: 0 1; } 44.4444% { scale: 1; } 64.4444% { scale: 1; } 100% { scale: 0.6 1; } }
-/* Thumbs travel in their slider's measured width (--tune-track, the scene script). */
-@keyframes tune-size-thumb { 0% { translate: calc(var(--tune-track, 0px) * -0.45) 0px; } 100% { translate: 0px 0px; } }
-@keyframes tune-weight-thumb { 0% { translate: calc(var(--tune-track, 0px) * -0.6) 0px; } 44.4444% { translate: calc(var(--tune-track, 0px) * 0.4) 0px; } 64.4444% { translate: calc(var(--tune-track, 0px) * 0.4) 0px; } 100% { translate: 0px 0px; } }
-@keyframes tune-div-tune-stage-backgroundcolor { 0% { background-color: var(--color-2); } 100% { background-color: var(--color-1); } }
-@keyframes tune-div-tune-stage-color { 0% { color: var(--color-1); } 100% { color: var(--color-2); } }
-@keyframes tune-b-tune-pill-translate { 0% { translate: -100% 0px; } 100% { translate: 0px 0px; } }
-/* Entry, only right after calls (the scene script sets data-handoff with the measured path): from the top of tune at the bottom of the view to 30%,
-   the card appears at the calls phone's screen (--tune-x, --tune-y, scale --tune-s) within the first 0.02 and grows along the path into place. */
-[data-8b-live] #tune[data-handoff] .tune__stage { animation-name: tune-stage-pop, tune-stage-path, tune-stage-grow, tune-stage-show, tune-div-tune-stage-backgroundcolor, tune-div-tune-stage-color; animation-timing-function: linear, linear(0, 0.0013, 0.005, 0.0112, 0.02, 0.0313, 0.045, 0.0612, 0.08, 0.1013, 0.125, 0.1512, 0.18, 0.2112, 0.245, 0.2813, 0.32, 0.3613, 0.405, 0.4512, 0.5, 0.5487, 0.595, 0.6388, 0.68, 0.7188, 0.755, 0.7887, 0.82, 0.8488, 0.875, 0.8988, 0.92, 0.9387, 0.955, 0.9688, 0.98, 0.9888, 0.995, 0.9988, 1), linear(0, 0.0013, 0.005, 0.0112, 0.02, 0.0313, 0.045, 0.0612, 0.08, 0.1013, 0.125, 0.1512, 0.18, 0.2112, 0.245, 0.2813, 0.32, 0.3613, 0.405, 0.4512, 0.5, 0.5487, 0.595, 0.6388, 0.68, 0.7188, 0.755, 0.7887, 0.82, 0.8488, 0.875, 0.8988, 0.92, 0.9387, 0.955, 0.9688, 0.98, 0.9888, 0.995, 0.9988, 1), linear, linear, linear; animation-fill-mode: both, both, forwards, both, both, both; animation-range: cover 0% cover 1.4vh, cover 1.4vh cover 70vh, cover 1.4vh cover 70vh, cover 0% cover 7vh, cover 105vh cover 115vh, cover 105vh cover 115vh; }
-@keyframes tune-stage-pop { 0% { scale: 0; } 100% { scale: var(--tune-s, 1); } }
-@keyframes tune-stage-path { 0% { translate: var(--tune-x, 0px) var(--tune-y, 0px); } 100% { translate: 0px 0px; } }
-@keyframes tune-stage-grow { 0% { scale: var(--tune-s, 1); } 100% { scale: 1; } }
-@keyframes tune-stage-show { 0% { opacity: 0; visibility: hidden; } 100% { opacity: 1; visibility: visible; } }
-}
-</style>
 <style data-8b-part="scene:rooms">
 @property --rooms-p { syntax: '<number>'; inherits: true; initial-value: 0; }
 @layer scenes {
@@ -938,7 +869,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
                   <li class="phone__msg phone__msg--you" data-step="3"><p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Gostaria de marcar uma consulta.</span></p></li>
                   <li class="phone__cue" data-step="4">Encaminhado para agente de agendamento</li>
                   <li class="phone__msg" data-step="4"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Qual o melhor dia e horario para agendamento?</span></p></li>
-                  <li class="phone__msg phone__msg--you" data-step="5"><p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Agendamento feito para Sexta às 18h</span></p></li>
+                  <li class="phone__msg phone__msg--you" data-step="5"><p class="m-caption-2"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Consulta agendada</span></p></li>
                 </ol>
                 <p class="phone__saved" data-step="5"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Mensagem criptografada</p>
                 <div class="phone__bar" aria-hidden="true">
@@ -956,32 +887,6 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
   </div>
 </section>
 
-<!-- caption-styles: a wall-sized sample sentence over a list of eight settings with drawn controls (animation: scene:tune) -->
-<section class="tune" id="tune" data-8b-section="caption-styles" aria-labelledby="tune-title">
-  <div class="tune__sheet m-band-2" aria-hidden="true"></div>
-  <div class="tune__inner l-wrap">
-    <div class="tune__stage">
-      <p class="tune__meta m-text-6"><span><i aria-hidden="true"></i>Live preview</span><span>Size L · Weight 600 · Dark</span></p>
-      <p class="tune__sample m-text-2"><span class="tune__line" style="--len:13">Friday at ten</span> <span class="tune__line" style="--len:13">works for me.</span></p>
-    </div>
-    <div class="tune__body">
-      <div class="tune__head">
-        <h2 class="m-text-3" id="tune-title" data-8b-motion="captionIn" data-8b-split="lines">Captions, set your way.</h2>
-        <p class="m-text-4">Big or small, light or bold, dark on light or light on dark. Linea learns how you read best and keeps every call that way.</p>
-      </div>
-      <ul class="tune__settings" data-8b-items=":scope > li" data-8b-fixed="8">
-        <li class="tune__row"><h3 class="m-text-5">Text size</h3><p class="m-text-8">From pocket print to wall-sized words.</p><span class="tune__ctl tune__slider" data-ctl="size" aria-hidden="true"><span class="tune__fill"></span><span class="tune__thumb"></span></span></li>
-        <li class="tune__row"><h3 class="m-text-5">Weight</h3><p class="m-text-8">Lighter or bolder strokes for tired eyes.</p><span class="tune__ctl tune__slider" data-ctl="weight" aria-hidden="true"><span class="tune__fill"></span><span class="tune__thumb"></span></span></li>
-        <li class="tune__row"><h3 class="m-text-5">Contrast</h3><p class="m-text-8">Dark on light, light on dark, or a pair of your own.</p><span class="tune__ctl tune__seg" data-ctl="contrast" aria-hidden="true"><b class="tune__pill"></b><span>Light</span><span>Dark</span></span></li>
-        <li class="tune__row"><h3 class="m-text-5">Your typed voice</h3><p class="m-text-8">Pick the tone and pace your typed words are read aloud in.</p><span class="tune__ctl tune__tag" aria-hidden="true">Voice 2</span></li>
-        <li class="tune__row"><h3 class="m-text-5">One-tap replies</h3><p class="m-text-8">Short answers suggested from the conversation itself.</p><span class="tune__ctl tune__toggle" aria-hidden="true"></span></li>
-        <li class="tune__row"><h3 class="m-text-5">Forty-plus languages</h3><p class="m-text-8">Switches on its own when the speaker does.</p><span class="tune__ctl tune__tag" aria-hidden="true">Auto</span></li>
-        <li class="tune__row"><h3 class="m-text-5">Quiet the spam</h3><p class="m-text-8">Screen out robocalls and words you’d rather not see.</p><span class="tune__ctl tune__toggle" aria-hidden="true"></span></li>
-        <li class="tune__row"><h3 class="m-text-5">Pairs with your hearing aids</h3><p class="m-text-8">Bluetooth hearing aids, implants and headsets.</p><span class="tune__ctl tune__toggle" aria-hidden="true"></span></li>
-      </ul>
-    </div>
-  </div>
-</section>
 
 <!-- in-person: horizontal track of five places with photos and caption pairs, two curved lines run through all of them (animation: scene:rooms) -->
 <section class="rooms on-dark" id="rooms" data-8b-section="in-person" aria-labelledby="rooms-title">
@@ -1186,7 +1091,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         <a class="m-link m-text-6" href="#hero">Back to the top</a>
       </div>
       <div class="footer__cols m-text-6" data-8b-items=":scope > .footer__col">
-        <div class="footer__col"><h2 class="m-text-6">Product</h2><ul><li><a class="m-link-2" href="#listen">How it works</a></li><li><a class="m-link-2" href="#calls">On calls</a></li><li><a class="m-link-2" href="#rooms">In person</a></li><li><a class="m-link-2" href="#tune">Your captions</a></li></ul></div>
+        <div class="footer__col"><h2 class="m-text-6">Product</h2><ul><li><a class="m-link-2" href="#listen">How it works</a></li><li><a class="m-link-2" href="#calls">On calls</a></li><li><a class="m-link-2" href="#rooms">In person</a></li></ul></div>
         <div class="footer__col"><h2 class="m-text-6">Support</h2><ul><li><a data-8b-placeholder="email" class="m-link-2" href="mailto:help@linea.example">help@linea.example</a></li><li><a data-8b-placeholder="phone" class="m-link-2" href="sms:+14150000000">Text (415) 000-0000</a></li><li><a class="m-link-2" href="#contact">Contact us</a></li><li><a class="m-link-2" href="#faq">Questions</a></li></ul></div>
         <div class="footer__col"><h2 class="m-text-6">Company</h2><ul><li><a class="m-link-2" href="#voices">Stories</a></li><li><a class="m-link-2" href="#setup">Getting started</a></li><li><a class="m-link-2" href="#start">Get the app</a></li></ul></div>
       </div>
@@ -1491,44 +1396,6 @@ motionKit.scene('calls', () => {
     const at = motionKit.box(list), top = motionKit.box(first), end = motionKit.box(last);
     motionKit.set(root, { '--calls-top': `${top.y - at.y}px`, '--calls-span': `${end.y + end.h - top.y}px` });
   });
-});
-</script>
-<script data-8b-part="scene-script:tune">
-motionKit.scene('tune', () => {
-  const root = document.getElementById('tune');
-  const stage = root.querySelector('.tune__stage');
-  const thumbs = [...root.querySelectorAll('.tune__slider > .tune__thumb')];
-  const offset = (element, stop) => {
-    let x = 0, y = 0;
-    for (let node = element; node && node !== stop; node = node.offsetParent) { x += node.offsetLeft; y += node.offsetTop; }
-    return { x, y };
-  };
-  const order = [...document.querySelectorAll('[data-8b-section]')].filter(section => section.getAttribute('data-8b-section') !== 'navigation');
-  const calls = order[order.indexOf(root) - 1]?.id === 'calls' ? order[order.indexOf(root) - 1] : null;
-  const aside = calls?.querySelector('.calls__aside');
-  const sticky = calls?.querySelector('.calls__sticky');
-  const screen = calls?.querySelector('.phone__screen');
-  const handoff = aside && sticky && screen;
-  motionKit.measure(() => {
-    thumbs.forEach(thumb => motionKit.set(thumb, { '--tune-track': `${thumb.parentElement.offsetWidth}px` }));
-    if (!handoff) return;
-    const startScroll = offset(root).y - innerHeight;
-    const asideAt = offset(aside);
-    const style = getComputedStyle(sticky);
-    const released = asideAt.y + aside.offsetHeight - sticky.offsetHeight - startScroll;
-    const fromBottom = style.top === 'auto' && style.bottom !== 'auto';
-    const stickyY = fromBottom
-      ? Math.min(released, innerHeight - (parseFloat(style.bottom) || 0) - sticky.offsetHeight)
-      : Math.min(Math.max(asideAt.y - startScroll, parseFloat(style.top) || 0), released);
-    const inner = offset(screen, sticky);
-    const stageAt = offset(stage);
-    motionKit.set(stage, {
-      '--tune-x': `${asideAt.x + inner.x + screen.offsetWidth / 2 - (stageAt.x + stage.offsetWidth / 2)}px`,
-      '--tune-y': `${stickyY + inner.y + screen.offsetHeight / 2 - (stageAt.y - startScroll + stage.offsetHeight / 2)}px`,
-      '--tune-s': innerWidth < 768 ? 0.12 : Math.max(0.16, screen.offsetWidth / stage.offsetWidth)
-    });
-  });
-  if (handoff) root.setAttribute('data-handoff', '');
 });
 </script>
 <script data-8b-part="scene-script:rooms">
