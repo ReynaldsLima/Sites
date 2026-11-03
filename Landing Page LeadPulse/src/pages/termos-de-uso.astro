@@ -1,0 +1,100 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Termos de Uso — LeadPulse" description="Condições de uso da plataforma LeadPulse.">
+  <Nav />
+  <main id="conteudo" class="legal">
+    <div class="container legal__box">
+      <p class="eyebrow">Legal</p>
+      <h1>Termos de Uso</h1>
+      <p class="legal__updated"><!-- TODO: data real da última atualização -->Última atualização: [data]</p>
+
+      <div class="legal__content">
+        <p>
+          <strong>Este documento é um rascunho estrutural e precisa de revisão jurídica antes de publicação.</strong>
+        </p>
+
+        <h2>1. Aceitação dos termos</h2>
+        <p>
+          <!-- TODO: redigir cláusula real de aceite -->
+          [Descrever as condições para uso da plataforma LeadPulse.]
+        </p>
+
+        <h2>2. Descrição do serviço</h2>
+        <p>
+          O LeadPulse é uma plataforma de captação, pontuação e priorização de leads para times de vendas.
+          <!-- TODO: detalhar limites reais de uso por plano -->
+        </p>
+
+        <h2>3. Cadastro e responsabilidades do usuário</h2>
+        <p>
+          <!-- TODO: redigir cláusula real sobre conta, senha e uso adequado -->
+          [Descrever obrigações do usuário.]
+        </p>
+
+        <h2>4. Pagamento, planos e cancelamento</h2>
+        <p>
+          <!-- TODO: redigir cláusula real de cobrança, reembolso e cancelamento -->
+          [Descrever política de cobrança e cancelamento.]
+        </p>
+
+        <h2>5. Propriedade intelectual</h2>
+        <p>
+          <!-- TODO: redigir cláusula real de PI -->
+          [Descrever titularidade sobre a plataforma e sobre os dados inseridos pelo cliente.]
+        </p>
+
+        <h2>6. Limitação de responsabilidade</h2>
+        <p>
+          <!-- TODO: redigir cláusula real, revisada por jurídico -->
+          [Descrever limites de responsabilidade do LeadPulse.]
+        </p>
+
+        <h2>7. Contato</h2>
+        <p><!-- TODO: e-mail real -->[email de suporte/legal]</p>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .legal {
+    padding-block: var(--space-xl);
+  }
+
+  .legal__box {
+    max-width: 68ch;
+  }
+
+  .legal__box h1 {
+    font-size: var(--step-3);
+    margin-top: var(--space-xs);
+  }
+
+  .legal__updated {
+    color: var(--muted);
+    font-size: var(--step--1);
+    margin-top: 0.5rem;
+  }
+
+  .legal__content {
+    margin-top: var(--space-lg);
+    display: grid;
+    gap: var(--space-sm);
+    color: var(--muted);
+  }
+
+  .legal__content h2 {
+    font-size: var(--step-1);
+    color: var(--ink);
+    margin-top: var(--space-sm);
+  }
+
+  .legal__content strong {
+    color: var(--ink);
+  }
+</style>

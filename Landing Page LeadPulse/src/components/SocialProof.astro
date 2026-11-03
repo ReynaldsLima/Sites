@@ -1,0 +1,107 @@
+---
+/*
+  TODO (dados reais, não inventar):
+  - Nome e logo de clientes reais com autorização de uso
+  - Depoimentos com nome, cargo e empresa reais
+  - Métricas reais (ex.: "+X% de conversão") com fonte verificável
+  Os itens abaixo são placeholders de estrutura, claramente marcados.
+*/
+const logos = ['Empresa A', 'Empresa B', 'Empresa C', 'Empresa D', 'Empresa E'];
+
+const testimonials = [
+  {
+    quote: '[Depoimento real a inserir — resultado concreto obtido com o LeadPulse]',
+    name: '[Nome do cliente]',
+    role: '[Cargo, Empresa]',
+  },
+  {
+    quote: '[Depoimento real a inserir — resultado concreto obtido com o LeadPulse]',
+    name: '[Nome do cliente]',
+    role: '[Cargo, Empresa]',
+  },
+];
+---
+
+<section class="social">
+  <div class="container">
+    <p class="social__label">Times de vendas que confiam no LeadPulse <span>(placeholder — substituir por logos reais)</span></p>
+    <ul class="social__logos">
+      {logos.map((l) => <li>{l}</li>)}
+    </ul>
+
+    <ul class="social__quotes">
+      {
+        testimonials.map((t) => (
+          <li class="quote-card">
+            <p class="quote-card__text">“{t.quote}”</p>
+            <p class="quote-card__name">{t.name}</p>
+            <p class="quote-card__role">{t.role}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .social {
+    padding-block: var(--space-lg);
+  }
+
+  .social__label {
+    text-align: center;
+    font-size: var(--step--1);
+    color: var(--muted);
+    margin-bottom: var(--space-sm);
+  }
+
+  .social__label span {
+    display: block;
+    font-size: 0.75em;
+    opacity: 0.7;
+  }
+
+  .social__logos {
+    list-style: none;
+    margin: 0 0 var(--space-lg);
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-md);
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    color: var(--muted);
+    opacity: 0.6;
+  }
+
+  .social__quotes {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .quote-card {
+    border: 1px dashed color-mix(in srgb, var(--muted) 50%, transparent);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+  }
+
+  .quote-card__text {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    margin-bottom: var(--space-xs);
+  }
+
+  .quote-card__name {
+    font-weight: 600;
+  }
+
+  .quote-card__role {
+    color: var(--muted);
+    font-size: var(--step--1);
+  }
+</style>

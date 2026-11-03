@@ -1,0 +1,95 @@
+---
+const steps = [
+  {
+    n: '01',
+    title: 'Conecte suas fontes',
+    text: 'Site, formulários, WhatsApp Business e planilhas — leve 10 minutos para ligar o LeadPulse ao que você já usa.',
+  },
+  {
+    n: '02',
+    title: 'Deixe o score trabalhar',
+    text: 'O LeadPulse observa o comportamento de cada lead e atualiza a pontuação sozinho, sem regras manuais pra manter.',
+  },
+  {
+    n: '03',
+    title: 'Venda para quem está pronto',
+    text: 'Seu time abre o painel e já sabe quem ligar primeiro — com todo o histórico de interações à mão.',
+  },
+];
+---
+
+<section id="como-funciona" class="how">
+  <div class="container">
+    <p class="eyebrow">Como funciona</p>
+    <h2 class="how__title">Do primeiro clique à venda fechada, em três passos.</h2>
+
+    <ol class="how__steps">
+      {
+        steps.map((s) => (
+          <li class="how__step">
+            <span class="how__n">{s.n}</span>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
+
+<style>
+  .how {
+    padding-block: var(--space-xl);
+    background: var(--navy);
+    color: var(--paper);
+  }
+
+  .how .eyebrow {
+    color: var(--accent);
+  }
+
+  .how__title {
+    max-width: 28ch;
+    font-size: var(--step-3);
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-lg);
+  }
+
+  .how__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-md);
+    counter-reset: step;
+  }
+
+  .how__step {
+    border-top: 1px solid rgba(247, 246, 243, 0.18);
+    padding-top: var(--space-sm);
+  }
+
+  .how__n {
+    display: block;
+    font-family: var(--font-display);
+    color: var(--muted-on-navy);
+    font-size: var(--step-1);
+    margin-bottom: 0.5rem;
+  }
+
+  .how__step h3 {
+    font-size: var(--step-2);
+    margin-bottom: 0.5rem;
+  }
+
+  .how__step p {
+    color: var(--pale-on-navy);
+    max-width: 50ch;
+  }
+
+  @media (min-width: 860px) {
+    .how__steps {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

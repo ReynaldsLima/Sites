@@ -1,0 +1,49 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base
+  title="Obrigado — LeadPulse"
+  description="Recebemos seu cadastro. Em breve alguém do nosso time entra em contato."
+  noindex
+>
+  <Nav />
+  <main id="conteudo" class="thanks">
+    <div class="container thanks__box">
+      <p class="eyebrow">Tudo certo</p>
+      <h1>Recebemos seu cadastro.</h1>
+      <p class="thanks__lede">
+        <!-- TODO: confirmar prazo real de contato (ex.: "em até 1 dia útil") -->
+        Em breve alguém do nosso time entra em contato com os próximos passos.
+      </p>
+      <a href="/" class="btn btn--accent">Voltar ao início</a>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .thanks {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-xl);
+  }
+
+  .thanks__box {
+    max-width: 48ch;
+  }
+
+  .thanks__box h1 {
+    font-size: var(--step-4);
+    margin-top: var(--space-xs);
+  }
+
+  .thanks__lede {
+    margin-block: var(--space-sm) var(--space-md);
+    color: var(--muted);
+    font-size: var(--step-1);
+  }
+</style>
