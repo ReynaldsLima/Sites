@@ -259,9 +259,12 @@
   #listen .listen__track--voice { left: 0; }
   #listen .listen__track--read { left: -100%; }
   #listen .listen__row { position: absolute; left: calc(50% + 2rem); max-width: calc(50% - 4rem); }
-  #listen .listen__row:nth-child(1) { top: 20%; }
-  #listen .listen__row:nth-child(2) { top: 37%; }
-  #listen .listen__row:nth-child(3) { top: 54%; }
+  #listen .listen__row:nth-child(1) { top: 8%; }
+  #listen .listen__row:nth-child(2) { top: 24%; }
+  #listen .listen__row:nth-child(3) { top: 40%; }
+  #listen .listen__row:nth-child(4) { top: 56%; }
+  #listen .listen__row:nth-child(5) { top: 72%; }
+  #listen .listen__row:nth-child(6) { top: 88%; }
   #listen .listen__row .m-caption { font-size: clamp(0.9375rem, 1.25vw, 1.1875rem); }
   #listen .listen__row--voice .m-caption { background: transparent; box-shadow: none; color: transparent; }
   #listen .listen__word { border-radius: 0.1875rem; background: repeating-linear-gradient(90deg, var(--color-2) 0 0.1875rem, transparent 0.1875rem 0.375rem) 50% 50% / 100% calc(var(--h) * 100%) no-repeat; }
@@ -276,9 +279,12 @@
     #listen .listen__track { left: 0; right: 0; width: auto; top: 0; bottom: auto; height: 200%; }
     #listen .listen__track--voice { top: -100%; }
     #listen .listen__row { left: 1.25rem; max-width: calc(100% - 2.5rem); }
-    #listen .listen__row:nth-child(1) { top: 5%; }
-    #listen .listen__row:nth-child(2) { top: 16.5%; }
-    #listen .listen__row:nth-child(3) { top: 28%; }
+    #listen .listen__row:nth-child(1) { top: 2%; }
+    #listen .listen__row:nth-child(2) { top: 10.5%; }
+    #listen .listen__row:nth-child(3) { top: 19%; }
+    #listen .listen__row:nth-child(4) { top: 27.5%; }
+    #listen .listen__row:nth-child(5) { top: 36%; }
+    #listen .listen__row:nth-child(6) { top: 44.5%; }
     #listen .listen__row .m-caption { font-size: 0.875rem; }
   }
 }
@@ -883,10 +889,13 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         </div>
         <div class="listen__panel listen__panel--read">
           <p class="m-text-6 listen__label">You read</p>
-          <div class="listen__track listen__track--read" data-8b-items=":scope > .listen__row" data-8b-fixed="3">
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Hey love — what time are we meeting today?</span></p></div>
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Around six? The table is booked under Ada.</span></p></div>
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">I’ll be the one in the orange coat.</span></p></div>
+          <div class="listen__track listen__track--read" data-8b-items=":scope > .listen__row" data-8b-fixed="6">
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Captação</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Marketing</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Atendimento</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Vendas</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Pós-venda</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Gestão</span></p></div>
           </div>
         </div>
       </div>
