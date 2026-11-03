@@ -539,7 +539,7 @@
   #footer .footer__col h2 { color: var(--color-9); }
   #footer .footer__col ul { display: grid; gap: 0.625rem; }
   #footer .footer__brand { display: flex; align-items: flex-end; margin-top: clamp(4rem, 9vw, 8rem); overflow: clip; }
-  #footer .footer__word { font-size: min(28rem, (100vw - 2 * var(--space-1)) / (var(--len) * 0.46)); line-height: 0.8; padding-bottom: 0.06em; }
+  #footer .footer__word { display: block; width: 100%; height: auto; }
   #footer .footer__legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem 2rem; margin-top: clamp(2rem, 4vw, 3rem); padding-block: 1.5rem 2rem; border-top: 0.0625rem solid color-mix(in srgb, var(--color-2) 14%, transparent); }
   #footer .footer__legal ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
   #footer .footer__note { max-width: 46rem; margin-top: 0; padding-bottom: 2.5rem; }
@@ -805,7 +805,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
 <header class="nav on-dark" id="nav" data-8b-section="navigation">
   <nav class="nav__bar" aria-label="Main">
     <a class="nav__brand" href="#hero" aria-label="LeadPulse, back to top">
-      <img src="/images/logo-leadpulse.png" alt="LeadPulse" class="nav__logo" width="130" height="33" />
+      <img src="/images/logo-leadpulse.png" alt="LeadPulse" class="nav__logo" width="196" height="33" />
     </a>
     <ul class="nav__links m-text-6" data-8b-items=":scope > li">
       <li><a class="m-link-2" href="#listen">Como Funciona</a></li>
@@ -1188,7 +1188,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
       </div>
     </div>
     <div class="footer__brand" aria-hidden="true">
-      <p class="footer__word m-text-2" style="--len:9">LeadPulse</p>
+      <img class="footer__word" src="/images/logo-leadpulse.png" alt="" width="785" height="132" />
     </div>
     <div class="footer__legal m-text-7">
       <p>© 2026 LeadPulse Inc. All rights reserved. · Design: <a href="https://8b.com/" style="color:inherit" data-8b-credit>8B</a></p>
