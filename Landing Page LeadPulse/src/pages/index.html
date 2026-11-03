@@ -340,6 +340,18 @@
   }
 }
 </style>
+<style data-8b-part="section:tune">
+@layer sections {
+  #tune { position: relative; isolation: isolate; color: var(--color-1); padding-block: clamp(4rem, 8vw, 7rem) var(--space-2); }
+  #tune > :not(.tune__sheet) { position: relative; z-index: 1; }
+  #tune .tune__stage { position: relative; z-index: 2; container-type: inline-size; padding: clamp(1.25rem, 3vw, 2.25rem) clamp(1.25rem, 3.5vw, 3rem) clamp(1.75rem, 4.5vw, 3.75rem); border-radius: var(--radius-2); background: var(--color-1); color: var(--color-2); transform-origin: 50% 50%; }
+  #tune .tune__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem 1.5rem; color: color-mix(in srgb, currentColor 72%, transparent); }
+  #tune .tune__meta span:first-child { display: inline-flex; align-items: center; gap: 0.5rem; }
+  #tune .tune__meta i { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--color-4); }
+  #tune .tune__sample { margin-top: clamp(2rem, 7vw, 5.5rem); }
+  #tune .tune__line { display: block; width: max-content; white-space: nowrap; font-size: min(13rem, 100cqi / (var(--len) * 0.49)); line-height: 0.98; transform-origin: 0% 100%; }
+}
+</style>
 <style data-8b-part="section:rooms">
 @layer sections {
   #rooms { position: relative; isolation: isolate; overflow-x: clip; color: var(--color-2); padding-top: var(--space-2); }
@@ -630,6 +642,25 @@
 }
 }
 </style>
+<style data-8b-part="scene:tune">
+@layer scenes {
+[data-8b-live] #tune { view-timeline: --tune-t1 block; view-timeline-inset: 0; }
+[data-8b-live] #tune .tune__stage, [data-8b-live] #tune .tune__line { animation-timeline: --tune-t1; animation-timing-function: linear; animation-fill-mode: both; transform: none; }
+[data-8b-live] #tune .tune__stage { animation-name: tune-div-tune-stage-backgroundcolor, tune-div-tune-stage-color; animation-range: cover 105vh cover 115vh, cover 105vh cover 115vh; }
+[data-8b-live] #tune .tune__line { animation-name: tune-span-tune-line-fontvariationsettings, tune-span-tune-line-scale; animation-range: cover 70vh cover 145vh, cover 70vh cover 103.3333vh; }
+@keyframes tune-span-tune-line-fontvariationsettings { 0% { font-variation-settings: "wght" 300; } 44.4444% { font-variation-settings: "wght" 800; } 64.4444% { font-variation-settings: "wght" 800; } 100% { font-variation-settings: "wght" 600; } }
+@keyframes tune-span-tune-line-scale { 0% { scale: 0.8; } 100% { scale: 1; } }
+@keyframes tune-div-tune-stage-backgroundcolor { 0% { background-color: var(--color-2); } 100% { background-color: var(--color-1); } }
+@keyframes tune-div-tune-stage-color { 0% { color: var(--color-1); } 100% { color: var(--color-2); } }
+/* Entry, only right after calls (the scene script sets data-handoff with the measured path): from the top of tune at the bottom of the view to 30%,
+   the card appears at the calls phone's screen (--tune-x, --tune-y, scale --tune-s) within the first 0.02 and grows along the path into place. */
+[data-8b-live] #tune[data-handoff] .tune__stage { animation-name: tune-stage-pop, tune-stage-path, tune-stage-grow, tune-stage-show, tune-div-tune-stage-backgroundcolor, tune-div-tune-stage-color; animation-timing-function: linear, linear(0, 0.0013, 0.005, 0.0112, 0.02, 0.0313, 0.045, 0.0612, 0.08, 0.1013, 0.125, 0.1512, 0.18, 0.2112, 0.245, 0.2813, 0.32, 0.3613, 0.405, 0.4512, 0.5, 0.5487, 0.595, 0.6388, 0.68, 0.7188, 0.755, 0.7887, 0.82, 0.8488, 0.875, 0.8988, 0.92, 0.9387, 0.955, 0.9688, 0.98, 0.9888, 0.995, 0.9988, 1), linear(0, 0.0013, 0.005, 0.0112, 0.02, 0.0313, 0.045, 0.0612, 0.08, 0.1013, 0.125, 0.1512, 0.18, 0.2112, 0.245, 0.2813, 0.32, 0.3613, 0.405, 0.4512, 0.5, 0.5487, 0.595, 0.6388, 0.68, 0.7188, 0.755, 0.7887, 0.82, 0.8488, 0.875, 0.8988, 0.92, 0.9387, 0.955, 0.9688, 0.98, 0.9888, 0.995, 0.9988, 1), linear, linear, linear; animation-fill-mode: both, both, forwards, both, both, both; animation-range: cover 0% cover 1.4vh, cover 1.4vh cover 70vh, cover 1.4vh cover 70vh, cover 0% cover 7vh, cover 105vh cover 115vh, cover 105vh cover 115vh; }
+@keyframes tune-stage-pop { 0% { scale: 0; } 100% { scale: var(--tune-s, 1); } }
+@keyframes tune-stage-path { 0% { translate: var(--tune-x, 0px) var(--tune-y, 0px); } 100% { translate: 0px 0px; } }
+@keyframes tune-stage-grow { 0% { scale: var(--tune-s, 1); } 100% { scale: 1; } }
+@keyframes tune-stage-show { 0% { opacity: 0; visibility: hidden; } 100% { opacity: 1; visibility: visible; } }
+}
+</style>
 <style data-8b-part="scene:rooms">
 @property --rooms-p { syntax: '<number>'; inherits: true; initial-value: 0; }
 @layer scenes {
@@ -888,6 +919,17 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
 </section>
 
 
+<!-- caption-styles: a wall-sized sample sentence preview card (animation: scene:tune) -->
+<section class="tune" id="tune" data-8b-section="caption-styles">
+  <div class="tune__sheet m-band-2" aria-hidden="true"></div>
+  <div class="tune__inner l-wrap">
+    <div class="tune__stage">
+      <p class="tune__meta m-text-6"><span><i aria-hidden="true"></i>Agente de agendamento</span></p>
+      <p class="tune__sample m-text-2"><span class="tune__line" style="--len:13">Friday at ten</span> <span class="tune__line" style="--len:13">works for me.</span></p>
+    </div>
+  </div>
+</section>
+
 <!-- in-person: horizontal track of five places with photos and caption pairs, two curved lines run through all of them (animation: scene:rooms) -->
 <section class="rooms on-dark" id="rooms" data-8b-section="in-person" aria-labelledby="rooms-title">
   <div class="rooms__sheet m-band-4" aria-hidden="true"></div>
@@ -1091,7 +1133,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         <a class="m-link m-text-6" href="#hero">Back to the top</a>
       </div>
       <div class="footer__cols m-text-6" data-8b-items=":scope > .footer__col">
-        <div class="footer__col"><h2 class="m-text-6">Product</h2><ul><li><a class="m-link-2" href="#listen">How it works</a></li><li><a class="m-link-2" href="#calls">On calls</a></li><li><a class="m-link-2" href="#rooms">In person</a></li></ul></div>
+        <div class="footer__col"><h2 class="m-text-6">Product</h2><ul><li><a class="m-link-2" href="#listen">How it works</a></li><li><a class="m-link-2" href="#calls">On calls</a></li><li><a class="m-link-2" href="#rooms">In person</a></li><li><a class="m-link-2" href="#tune">Your captions</a></li></ul></div>
         <div class="footer__col"><h2 class="m-text-6">Support</h2><ul><li><a data-8b-placeholder="email" class="m-link-2" href="mailto:help@linea.example">help@linea.example</a></li><li><a data-8b-placeholder="phone" class="m-link-2" href="sms:+14150000000">Text (415) 000-0000</a></li><li><a class="m-link-2" href="#contact">Contact us</a></li><li><a class="m-link-2" href="#faq">Questions</a></li></ul></div>
         <div class="footer__col"><h2 class="m-text-6">Company</h2><ul><li><a class="m-link-2" href="#voices">Stories</a></li><li><a class="m-link-2" href="#setup">Getting started</a></li><li><a class="m-link-2" href="#start">Get the app</a></li></ul></div>
       </div>
@@ -1396,6 +1438,42 @@ motionKit.scene('calls', () => {
     const at = motionKit.box(list), top = motionKit.box(first), end = motionKit.box(last);
     motionKit.set(root, { '--calls-top': `${top.y - at.y}px`, '--calls-span': `${end.y + end.h - top.y}px` });
   });
+});
+</script>
+<script data-8b-part="scene-script:tune">
+motionKit.scene('tune', () => {
+  const root = document.getElementById('tune');
+  const stage = root.querySelector('.tune__stage');
+  const offset = (element, stop) => {
+    let x = 0, y = 0;
+    for (let node = element; node && node !== stop; node = node.offsetParent) { x += node.offsetLeft; y += node.offsetTop; }
+    return { x, y };
+  };
+  const order = [...document.querySelectorAll('[data-8b-section]')].filter(section => section.getAttribute('data-8b-section') !== 'navigation');
+  const calls = order[order.indexOf(root) - 1]?.id === 'calls' ? order[order.indexOf(root) - 1] : null;
+  const aside = calls?.querySelector('.calls__aside');
+  const sticky = calls?.querySelector('.calls__sticky');
+  const screen = calls?.querySelector('.phone__screen');
+  const handoff = aside && sticky && screen;
+  motionKit.measure(() => {
+    if (!handoff) return;
+    const startScroll = offset(root).y - innerHeight;
+    const asideAt = offset(aside);
+    const style = getComputedStyle(sticky);
+    const released = asideAt.y + aside.offsetHeight - sticky.offsetHeight - startScroll;
+    const fromBottom = style.top === 'auto' && style.bottom !== 'auto';
+    const stickyY = fromBottom
+      ? Math.min(released, innerHeight - (parseFloat(style.bottom) || 0) - sticky.offsetHeight)
+      : Math.min(Math.max(asideAt.y - startScroll, parseFloat(style.top) || 0), released);
+    const inner = offset(screen, sticky);
+    const stageAt = offset(stage);
+    motionKit.set(stage, {
+      '--tune-x': `${asideAt.x + inner.x + screen.offsetWidth / 2 - (stageAt.x + stage.offsetWidth / 2)}px`,
+      '--tune-y': `${stickyY + inner.y + screen.offsetHeight / 2 - (stageAt.y - startScroll + stage.offsetHeight / 2)}px`,
+      '--tune-s': innerWidth < 768 ? 0.12 : Math.max(0.16, screen.offsetWidth / stage.offsetWidth)
+    });
+  });
+  if (handoff) root.setAttribute('data-handoff', '');
 });
 </script>
 <script data-8b-part="scene-script:rooms">
