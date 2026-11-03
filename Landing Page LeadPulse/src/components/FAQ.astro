@@ -1,0 +1,131 @@
+---
+const faqs = [
+  {
+    q: 'Preciso trocar de CRM para usar o LeadPulse?',
+    a: 'Não. O LeadPulse se conecta ao CRM que você já usa e sincroniza os leads nos dois sentidos.',
+    // TODO: confirmar lista real de integrações disponíveis no lançamento
+  },
+  {
+    q: 'Como funciona o score dos leads?',
+    a: 'O score é calculado automaticamente a partir do comportamento do lead — páginas visitadas, e-mails abertos, tempo de resposta e outros sinais de interesse.',
+  },
+  {
+    q: 'Dá para testar antes de assinar?',
+    a: 'Sim.', // TODO: confirmar duração real do trial e se exige cartão de crédito
+  },
+  {
+    q: 'O LeadPulse funciona para qualquer tamanho de time?',
+    a: 'Sim — de operações de um vendedor só até times comerciais com múltiplas squads.',
+  },
+  {
+    q: 'Meus dados ficam seguros?',
+    a: 'Sim. Os dados são armazenados com criptografia e acesso restrito por permissão de usuário.',
+    // TODO: revisar esta resposta junto do time de segurança/compliance antes de publicar
+  },
+];
+---
+
+<section id="duvidas" class="faq">
+  <div class="container faq__grid">
+    <div>
+      <p class="eyebrow">Dúvidas</p>
+      <h2>Perguntas frequentes</h2>
+    </div>
+
+    <dl class="faq__list">
+      {
+        faqs.map((item, i) => (
+          <div class="faq__item">
+            <dt>
+              <button type="button" aria-expanded="false" aria-controls={`faq-${i}`} class="faq__question">
+                {item.q}
+                <span aria-hidden="true">+</span>
+              </button>
+            </dt>
+            <dd id={`faq-${i}`} hidden>
+              {item.a}
+            </dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  .faq {
+    padding-block: var(--space-xl);
+    background: var(--paper-deep);
+  }
+
+  .faq__grid {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .faq h2 {
+    font-size: var(--step-3);
+    margin-top: var(--space-xs);
+  }
+
+  .faq__list {
+    margin: 0;
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .faq__item {
+    border-bottom: 1px solid color-mix(in srgb, var(--muted) 30%, transparent);
+  }
+
+  .faq__question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: var(--space-sm) 0;
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  .faq__question span {
+    flex-shrink: 0;
+    transition: transform 0.25s var(--ease);
+    font-size: var(--step-1);
+    color: var(--accent);
+  }
+
+  .faq__question[aria-expanded='true'] span {
+    transform: rotate(45deg);
+  }
+
+  .faq__item dd {
+    margin: 0;
+    padding-bottom: var(--space-sm);
+    max-width: 60ch;
+    color: var(--muted);
+  }
+
+  @media (min-width: 860px) {
+    .faq__grid {
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('.faq__question').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      const panel = document.getElementById(btn.getAttribute('aria-controls') ?? '');
+      if (panel) panel.hidden = expanded;
+    });
+  });
+</script>

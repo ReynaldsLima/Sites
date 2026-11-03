@@ -1,0 +1,117 @@
+---
+const features = [
+  {
+    title: 'Captura automática',
+    text: 'Formulários, chat, landing pages e planilhas caem direto no LeadPulse — sem copiar e colar entre ferramentas.',
+  },
+  {
+    title: 'Scoring em tempo real',
+    text: 'Cada lead ganha uma pontuação com base no comportamento: páginas visitadas, e-mails abertos, tempo de resposta.',
+  },
+  {
+    title: 'Fila priorizada',
+    text: 'O time vê, em um único painel, quem está pronto para comprar agora — sem precisar adivinhar.',
+  },
+  {
+    title: 'Integração com CRM',
+    text: 'Sincroniza com o CRM que você já usa, nos dois sentidos, sem retrabalho manual.',
+    note: true,
+  },
+  {
+    title: 'Follow-up automático',
+    text: 'Sequências de e-mail e lembretes disparados sozinhos quando um lead esfria.',
+  },
+  {
+    title: 'Painel de funil',
+    text: 'Visão clara de onde cada lead está, de onde veio e quanto tempo falta pra fechar.',
+  },
+];
+---
+
+<section id="recursos" class="features">
+  <div class="container">
+    <div class="features__head">
+      <p class="eyebrow">Recursos</p>
+      <h2 class="features__title">Tudo que o seu funil precisa, num só lugar.</h2>
+    </div>
+
+    <ul class="features__grid" data-reveal-group>
+      {
+        features.map((f) => (
+          <li class="feature-card" data-reveal>
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+            {f.note && (
+              <p class="feature-card__note">
+                {/* TODO: confirmar lista real de CRMs suportados (ex.: HubSpot, RD Station, Pipedrive) */}
+                Integrações: a confirmar
+              </p>
+            )}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .features {
+    padding-block: var(--space-xl);
+  }
+
+  .features__head {
+    max-width: 44ch;
+    margin-bottom: var(--space-lg);
+  }
+
+  .features__title {
+    margin-top: var(--space-xs);
+    font-size: var(--step-3);
+  }
+
+  .features__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .feature-card {
+    background: var(--paper-deep);
+    border-radius: var(--radius-md);
+    padding: var(--space-sm);
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  }
+
+  .feature-card.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .feature-card h3 {
+    font-size: var(--step-1);
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-card p {
+    color: var(--muted);
+  }
+
+  .feature-card__note {
+    margin-top: 0.75rem;
+    font-size: var(--step--1);
+    color: color-mix(in srgb, var(--accent) 65%, var(--ink));
+    font-weight: 600;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .feature-card {
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>

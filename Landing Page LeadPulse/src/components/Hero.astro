@@ -1,0 +1,201 @@
+---
+---
+
+<section id="inicio" class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow">Plataforma de captação e priorização de leads</p>
+      <h1 class="hero__title">
+        Todo lead certo, <em>no topo da fila</em> do seu time de vendas.
+      </h1>
+      <p class="hero__lede">
+        O LeadPulse capta, pontua e organiza seus leads em tempo real — para que seu time pare de
+        adivinhar quem ligar primeiro e comece a fechar mais rápido.
+      </p>
+
+      <div class="hero__actions">
+        <a href="#inicio-gratis" class="btn btn--accent">Começar grátis</a>
+        <a href="#demo" class="btn btn--ghost-dark">Ver demonstração</a>
+      </div>
+
+      <p class="hero__fineprint">
+        Sem cartão de crédito · configuração em minutos
+        <!-- TODO: confirmar texto de elegibilidade/trial real do plano -->
+      </p>
+    </div>
+
+    <div class="hero__visual" aria-hidden="true">
+      <div class="pulse-card">
+        <div class="pulse-card__head">
+          <span class="pulse-dot"></span>
+          Atividade em tempo real
+        </div>
+        <svg class="pulse-line" viewBox="0 0 320 90" preserveAspectRatio="none">
+          <polyline
+            points="0,55 30,55 42,20 54,80 66,40 78,55 110,55 122,10 134,70 146,55 180,55 192,30 204,65 216,55 260,55 272,15 284,75 296,55 320,55"
+          ></polyline>
+        </svg>
+        <ul class="pulse-card__list">
+          <li><span class="pill pill--hot">Quente</span> Consultoria Átrio · visitou preços 3x</li>
+          <li><span class="pill pill--warm">Morno</span> Grupo Ventus · baixou o e-book</li>
+          <li><span class="pill pill--cold">Novo</span> Fibra Soluções · acabou de chegar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: var(--space-lg) var(--space-xl);
+    overflow: clip;
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .hero__title {
+    margin-block: var(--space-sm) var(--space-sm);
+    font-size: var(--step-5);
+    max-width: 14ch;
+  }
+
+  .hero__title em {
+    font-style: normal;
+    color: var(--accent);
+    background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 35%, transparent) 0);
+  }
+
+  .hero__lede {
+    max-width: 46ch;
+    font-size: var(--step-1);
+    color: var(--muted);
+  }
+
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: var(--space-md);
+  }
+
+  .hero__fineprint {
+    margin-top: var(--space-xs);
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+
+  .hero__visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pulse-card {
+    width: min(100%, 420px);
+    background: var(--navy);
+    color: var(--paper);
+    border-radius: var(--radius-lg);
+    padding: var(--space-sm);
+    box-shadow: 0 30px 60px -20px rgba(10, 19, 34, 0.45);
+  }
+
+  .pulse-card__head {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--step--1);
+    color: var(--pale-on-navy);
+    font-weight: 600;
+  }
+
+  .pulse-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 60%, transparent);
+    animation: ping 2.2s var(--ease) infinite;
+  }
+
+  @keyframes ping {
+    0% {
+      box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+    70% {
+      box-shadow: 0 0 0 10px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+
+  .pulse-line {
+    width: 100%;
+    height: 90px;
+    margin-block: var(--space-xs);
+  }
+
+  .pulse-line polyline {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .pulse-card__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+    font-size: var(--step--1);
+  }
+
+  .pulse-card__list li {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    background: rgba(247, 246, 243, 0.06);
+    border-radius: var(--radius-sm);
+    padding: 0.6em 0.8em;
+  }
+
+  .pill {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.2em 0.6em;
+    border-radius: var(--radius-pill);
+  }
+
+  .pill--hot {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  .pill--warm {
+    background: #ffcf7a;
+    color: #4a3200;
+  }
+
+  .pill--cold {
+    background: rgba(247, 246, 243, 0.14);
+    color: var(--pale-on-navy);
+  }
+
+  @media (min-width: 960px) {
+    .hero__grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-dot {
+      animation: none;
+    }
+  }
+</style>

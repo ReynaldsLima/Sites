@@ -1,0 +1,207 @@
+---
+const links = [
+  { href: '#como-funciona', label: 'Como funciona' },
+  { href: '#recursos', label: 'Recursos' },
+  { href: '#precos', label: 'Preços' },
+  { href: '#duvidas', label: 'Dúvidas' },
+];
+---
+
+<header class="nav">
+  <div class="container nav__bar">
+    <a href="#inicio" class="nav__brand" aria-label="LeadPulse, voltar ao topo">
+      <span class="nav__logo-badge">
+        <img src="/images/logo-linea.png" alt="LeadPulse" class="nav__logo" width="203" height="52" />
+      </span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navegação principal">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+
+    <div class="nav__actions">
+      <a href="#demo" class="btn btn--ghost-dark nav__secondary">Agendar demo</a>
+      <a href="#inicio-gratis" class="btn btn--accent">Começar grátis</a>
+      <button class="nav__toggle" aria-expanded="false" aria-controls="menu-mobile" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div id="menu-mobile" class="menu" data-menu hidden>
+    <nav aria-label="Navegação mobile">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      <a href="#demo">Agendar demo</a>
+      <a href="#inicio-gratis" class="btn btn--accent">Começar grátis</a>
+    </nav>
+    <button class="menu__close" aria-label="Fechar menu">Fechar</button>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding-block: var(--space-xs);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(10px);
+  }
+
+  .nav__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .nav__brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--ink);
+  }
+
+  .nav__logo-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--ink);
+    border-radius: var(--radius-pill);
+    padding: 0.5em 1em;
+  }
+
+  .nav__logo {
+    display: block;
+    height: 1.4rem;
+    width: auto;
+  }
+
+  .nav__links {
+    display: none;
+    gap: var(--space-sm);
+    font-size: var(--step--1);
+    font-weight: 500;
+  }
+
+  .nav__links a {
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s var(--ease);
+  }
+
+  .nav__links a:hover {
+    color: var(--ink);
+  }
+
+  .nav__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav__secondary {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: grid;
+    gap: 4px;
+    place-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid rgba(16, 20, 26, 0.15);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .nav__toggle span {
+    width: 16px;
+    height: 2px;
+    background: var(--ink);
+    display: block;
+    margin-inline: auto;
+  }
+
+  .menu[hidden] {
+    display: none;
+  }
+
+  .menu {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: var(--navy);
+    color: var(--paper);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    font-family: var(--font-display);
+    font-size: var(--step-2);
+  }
+
+  .menu nav a {
+    text-decoration: none;
+    color: var(--paper);
+  }
+
+  .menu nav .btn {
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    width: fit-content;
+    margin-top: var(--space-xs);
+  }
+
+  .menu__close {
+    position: absolute;
+    top: var(--space-sm);
+    right: var(--space-sm);
+    background: transparent;
+    border: 1px solid rgba(247, 246, 243, 0.3);
+    color: var(--paper);
+    border-radius: var(--radius-pill);
+    padding: 0.6em 1.2em;
+    cursor: pointer;
+  }
+
+  @media (min-width: 900px) {
+    .nav__links {
+      display: flex;
+    }
+    .nav__secondary {
+      display: inline-flex;
+    }
+    .nav__toggle {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav__toggle');
+  const menu = document.querySelector<HTMLDivElement>('[data-menu]');
+  const close = document.querySelector<HTMLButtonElement>('.menu__close');
+
+  function openMenu() {
+    menu?.removeAttribute('hidden');
+    toggle?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menu?.setAttribute('hidden', '');
+    toggle?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', openMenu);
+  close?.addEventListener('click', closeMenu);
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+</script>

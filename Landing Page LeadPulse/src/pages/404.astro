@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Base title="Página não encontrada — LeadPulse" description="Esta página não existe ou foi movida." noindex>
+  <Nav />
+  <main id="conteudo" class="not-found">
+    <div class="container not-found__box">
+      <p class="eyebrow">Erro 404</p>
+      <h1>Essa página saiu da fila.</h1>
+      <p class="not-found__lede">O endereço não existe ou foi movido. Volte para o início e tente de novo.</p>
+      <a href="/" class="btn btn--accent">Voltar ao início</a>
+    </div>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .not-found {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-xl);
+  }
+
+  .not-found__box {
+    max-width: 48ch;
+  }
+
+  .not-found__box h1 {
+    font-size: var(--step-4);
+    margin-top: var(--space-xs);
+  }
+
+  .not-found__lede {
+    margin-block: var(--space-sm) var(--space-md);
+    color: var(--muted);
+    font-size: var(--step-1);
+  }
+</style>

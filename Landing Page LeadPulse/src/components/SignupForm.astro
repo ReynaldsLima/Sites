@@ -1,0 +1,243 @@
+---
+---
+
+<section id="inicio-gratis" class="signup">
+  <div class="container signup__box">
+    <div class="signup__intro">
+      <h2>Comece grátis em menos de 5 minutos.</h2>
+      <p>Preencha os dados abaixo. Você recebe o acesso por e-mail.</p>
+      {/* TODO: confirmar texto de elegibilidade/duração real do plano gratuito */}
+    </div>
+
+    <form id="signup-form" novalidate data-msg-ok="Prontinho — enviamos o acesso para o seu e-mail." data-msg-error="Não conseguimos enviar agora. Tente de novo em instantes.">
+      <div class="field">
+        <label for="name">Nome</label>
+        <input id="name" name="name" type="text" autocomplete="name" required />
+        <p class="field__error" data-error-for="name" hidden>Informe seu nome.</p>
+      </div>
+
+      <div class="field">
+        <label for="email">E-mail profissional</label>
+        <input id="email" name="email" type="email" autocomplete="email" required />
+        <p class="field__error" data-error-for="email" hidden>Informe um e-mail válido.</p>
+      </div>
+
+      <div class="field">
+        <label for="company">Empresa</label>
+        <input id="company" name="company" type="text" autocomplete="organization" required />
+        <p class="field__error" data-error-for="company" hidden>Informe o nome da empresa.</p>
+      </div>
+
+      <button type="submit" class="btn btn--accent signup__submit">
+        <span class="signup__submit-label">Começar grátis</span>
+        <span class="signup__spinner" aria-hidden="true" hidden></span>
+      </button>
+
+      <p class="signup__status" role="status" aria-live="polite" data-form-status hidden></p>
+    </form>
+  </div>
+</section>
+
+<style>
+  .signup {
+    padding-block: var(--space-xl);
+  }
+
+  .signup__box {
+    background: var(--navy);
+    color: var(--paper);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl) var(--space-md);
+    display: grid;
+    gap: var(--space-lg);
+    max-width: 920px;
+    margin-inline: auto;
+  }
+
+  .signup__intro h2 {
+    font-size: var(--step-3);
+    max-width: 16ch;
+  }
+
+  .signup__intro p {
+    margin-top: var(--space-xs);
+    color: var(--pale-on-navy);
+  }
+
+  #signup-form {
+    display: grid;
+    gap: var(--space-sm);
+  }
+
+  .field {
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .field label {
+    font-size: var(--step--1);
+    font-weight: 600;
+    color: var(--pale-on-navy);
+  }
+
+  .field input {
+    font: inherit;
+    padding: 0.85em 1em;
+    border-radius: var(--radius-sm);
+    border: 1px solid rgba(247, 246, 243, 0.25);
+    background: rgba(247, 246, 243, 0.06);
+    color: var(--paper);
+  }
+
+  .field input::placeholder {
+    color: var(--muted-on-navy);
+  }
+
+  .field input:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .field input[aria-invalid='true'] {
+    border-color: var(--danger);
+  }
+
+  .field__error {
+    font-size: var(--step--1);
+    color: #ff9b9b;
+  }
+
+  .signup__submit {
+    position: relative;
+    justify-self: start;
+  }
+
+  .signup__submit[aria-busy='true'] {
+    cursor: progress;
+    opacity: 0.85;
+  }
+
+  .signup__submit[aria-busy='true'] .signup__submit-label {
+    visibility: hidden;
+  }
+
+  .signup__spinner {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 1.1em;
+    height: 1.1em;
+    border: 2px solid color-mix(in srgb, var(--accent-ink) 30%, transparent);
+    border-top-color: var(--accent-ink);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  .signup__status {
+    font-size: var(--step--1);
+    font-weight: 600;
+  }
+
+  .signup__status[data-status='ok'] {
+    color: var(--accent);
+  }
+
+  .signup__status[data-status='error'] {
+    color: #ff9b9b;
+  }
+
+  @media (min-width: 860px) {
+    .signup__box {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: start;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .signup__spinner {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#signup-form');
+  const submitBtn = form?.querySelector<HTMLButtonElement>('.signup__submit');
+  const status = form?.querySelector<HTMLParagraphElement>('[data-form-status]');
+
+  const validators: Record<string, (value: string) => boolean> = {
+    name: (v) => v.trim().length > 1,
+    email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+    company: (v) => v.trim().length > 1,
+  };
+
+  function setFieldError(field: HTMLInputElement, hasError: boolean) {
+    field.setAttribute('aria-invalid', String(hasError));
+    const msg = form?.querySelector<HTMLParagraphElement>(`[data-error-for="${field.name}"]`);
+    if (msg) msg.hidden = !hasError;
+  }
+
+  function validate(): boolean {
+    if (!form) return false;
+    let valid = true;
+    for (const name of Object.keys(validators)) {
+      const field = form.querySelector<HTMLInputElement>(`#${name}`);
+      if (!field) continue;
+      const ok = validators[name](field.value);
+      setFieldError(field, !ok);
+      if (!ok) valid = false;
+    }
+    return valid;
+  }
+
+  form?.querySelectorAll<HTMLInputElement>('input').forEach((input) => {
+    input.addEventListener('blur', () => {
+      const ok = validators[input.name]?.(input.value);
+      if (ok !== undefined) setFieldError(input, !ok);
+    });
+  });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!status || !submitBtn || !form) return;
+
+    status.hidden = true;
+
+    if (!validate()) {
+      status.hidden = false;
+      status.dataset.status = 'error';
+      status.textContent = 'Revise os campos destacados acima.';
+      return;
+    }
+
+    submitBtn.setAttribute('aria-busy', 'true');
+    submitBtn.disabled = true;
+    submitBtn.querySelector('.signup__spinner')?.removeAttribute('hidden');
+
+    try {
+      // TODO: trocar por um endpoint real (ex.: Formspree, rota própria) antes de publicar.
+      // Exemplo:
+      // const res = await fetch('https://formspree.io/f/SEU_ID', {
+      //   method: 'POST',
+      //   body: new FormData(form),
+      //   headers: { Accept: 'application/json' },
+      // });
+      // if (!res.ok) throw new Error('request failed');
+      await new Promise((resolve) => setTimeout(resolve, 600));
+      window.location.href = '/obrigado';
+    } catch {
+      status.hidden = false;
+      status.dataset.status = 'error';
+      status.textContent = form.dataset.msgError ?? 'Não foi possível enviar.';
+      submitBtn.removeAttribute('aria-busy');
+      submitBtn.disabled = false;
+      submitBtn.querySelector('.signup__spinner')?.setAttribute('hidden', '');
+    }
+  });
+</script>

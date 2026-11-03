@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f1b2d"/>
+  <circle cx="1040" cy="90" r="3.5" fill="#00d9a3"/>
+  <text x="90" y="110" font-family="Georgia, serif" font-size="34" font-weight="600" fill="#f7f6f3">LeadPulse</text>
+
+  <text x="90" y="260" font-family="Georgia, serif" font-size="64" font-weight="600" fill="#f7f6f3">Todo lead certo,</text>
+  <text x="90" y="335" font-family="Georgia, serif" font-size="64" font-weight="600" fill="#00d9a3">no topo da fila.</text>
+
+  <text x="90" y="400" font-family="Arial, sans-serif" font-size="26" fill="#c7d6e8">Captação, scoring e priorização de leads em tempo real.</text>
+
+  <polyline points="90,520 180,520 205,470 230,560 255,495 280,520 340,520 365,440 390,580 415,520
+                     480,520 505,480 530,565 555,520 620,520 645,450 670,575 695,520 760,520"
+            fill="none" stroke="#00d9a3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

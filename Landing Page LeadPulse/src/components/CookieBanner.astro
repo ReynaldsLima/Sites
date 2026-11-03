@@ -1,0 +1,87 @@
+---
+---
+
+<div class="cookie-banner" data-cookie-banner hidden>
+  <div class="container cookie-banner__inner">
+    <p>
+      Usamos cookies para melhorar sua experiência e medir o desempenho do site. Ao continuar, você concorda com nossa
+      <a href="/politica-de-privacidade">Política de Privacidade</a>.
+    </p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn--ghost-dark" data-cookie-decline>Recusar</button>
+      <button type="button" class="btn btn--accent" data-cookie-accept>Aceitar</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 150;
+    background: var(--ink);
+    color: var(--paper);
+    padding: var(--space-sm) 0;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .cookie-banner__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .cookie-banner p {
+    max-width: 60ch;
+    font-size: var(--step--1);
+    color: var(--muted-on-navy);
+  }
+
+  .cookie-banner a {
+    color: var(--paper);
+    text-decoration: underline;
+  }
+
+  .cookie-banner__actions {
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  .cookie-banner .btn--ghost-dark {
+    border-color: rgba(247, 246, 243, 0.3);
+    color: var(--paper);
+  }
+</style>
+
+<script>
+  const KEY = 'leadpulse-cookie-consent';
+  const banner = document.querySelector<HTMLDivElement>('[data-cookie-banner]');
+
+  function hasConsent() {
+    try {
+      return localStorage.getItem(KEY);
+    } catch {
+      return null;
+    }
+  }
+
+  function setConsent(value: 'accepted' | 'declined') {
+    try {
+      localStorage.setItem(KEY, value);
+    } catch {
+      /* ignore — ambiente sem acesso a localStorage */
+    }
+    banner?.setAttribute('hidden', '');
+  }
+
+  if (banner && !hasConsent()) {
+    banner.removeAttribute('hidden');
+  }
+
+  document.querySelector('[data-cookie-accept]')?.addEventListener('click', () => setConsent('accepted'));
+  document.querySelector('[data-cookie-decline]')?.addEventListener('click', () => setConsent('declined'));
+</script>

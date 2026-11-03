@@ -1,0 +1,193 @@
+---
+/*
+  TODO (dados reais, não inventar):
+  - Preços reais de cada plano (hoje: placeholder "R$ --")
+  - Limites reais (nº de leads, usuários, integrações por plano)
+  - Confirmar se existe free trial, por quantos dias, e se pede cartão
+*/
+const plans = [
+  {
+    name: 'Starter',
+    price: 'R$ --',
+    period: '/mês',
+    desc: 'Para quem está começando a organizar o funil.',
+    features: ['Até [N] leads ativos', 'Scoring automático', '1 integração de CRM', 'Suporte por e-mail'],
+    cta: 'Começar grátis',
+    highlight: false,
+  },
+  {
+    name: 'Growth',
+    price: 'R$ --',
+    period: '/mês',
+    desc: 'Para times de vendas em crescimento.',
+    features: ['Leads ativos ilimitados', 'Follow-up automático', 'Integrações ilimitadas', 'Suporte prioritário'],
+    cta: 'Começar grátis',
+    highlight: true,
+  },
+  {
+    name: 'Escala',
+    price: 'Sob consulta',
+    period: '',
+    desc: 'Para operações comerciais grandes ou multi-times.',
+    features: ['Tudo do Growth', 'SSO e permissões por time', 'Onboarding assistido', 'Gerente de conta dedicado'],
+    cta: 'Falar com vendas',
+    highlight: false,
+  },
+];
+---
+
+<section id="precos" class="pricing">
+  <div class="container">
+    <div class="pricing__head">
+      <p class="eyebrow">Preços</p>
+      <h2>Planos simples, sem surpresa na fatura.</h2>
+      <p class="pricing__fine">Valores de exemplo — <strong>substituir pelos preços reais</strong> antes de publicar.</p>
+    </div>
+
+    <ul class="pricing__grid">
+      {
+        plans.map((p) => (
+          <li class={`plan-card ${p.highlight ? 'plan-card--highlight' : ''}`}>
+            {p.highlight && <span class="plan-card__badge">Mais popular</span>}
+            <h3>{p.name}</h3>
+            <p class="plan-card__price">
+              {p.price}
+              {p.period && <span>{p.period}</span>}
+            </p>
+            <p class="plan-card__desc">{p.desc}</p>
+            <ul class="plan-card__features">
+              {p.features.map((f) => <li>{f}</li>)}
+            </ul>
+            <a href="#inicio-gratis" class={`btn ${p.highlight ? 'btn--accent' : 'btn--ghost-dark'} plan-card__cta`}>
+              {p.cta}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .pricing {
+    padding-block: var(--space-xl);
+  }
+
+  .pricing__head {
+    max-width: 50ch;
+    margin-inline: auto;
+    text-align: center;
+    margin-bottom: var(--space-lg);
+  }
+
+  .pricing__head h2 {
+    font-size: var(--step-3);
+    margin-top: var(--space-xs);
+  }
+
+  .pricing__fine {
+    margin-top: var(--space-xs);
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+
+  .pricing__grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+
+  .plan-card {
+    position: relative;
+    border: 1px solid var(--paper-deep);
+    border-radius: var(--radius-lg);
+    padding: var(--space-md);
+  }
+
+  .plan-card--highlight {
+    background: var(--navy);
+    color: var(--paper);
+    border-color: var(--navy);
+  }
+
+  .plan-card__badge {
+    position: absolute;
+    top: -0.9em;
+    left: var(--space-md);
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-size: var(--step--1);
+    font-weight: 700;
+    padding: 0.3em 0.9em;
+    border-radius: var(--radius-pill);
+  }
+
+  .plan-card h3 {
+    font-size: var(--step-1);
+  }
+
+  .plan-card__price {
+    font-family: var(--font-display);
+    font-size: var(--step-3);
+    margin-top: 0.5rem;
+  }
+
+  .plan-card__price span {
+    font-size: var(--step-0);
+    font-family: var(--font-body);
+    color: inherit;
+    opacity: 0.6;
+  }
+
+  .plan-card__desc {
+    margin-top: 0.4rem;
+    color: var(--muted);
+  }
+
+  .plan-card--highlight .plan-card__desc {
+    color: var(--pale-on-navy);
+  }
+
+  .plan-card__features {
+    list-style: none;
+    margin: var(--space-sm) 0;
+    padding: 0;
+    display: grid;
+    gap: 0.6rem;
+    font-size: var(--step--1);
+  }
+
+  .plan-card__features li {
+    padding-left: 1.4em;
+    position: relative;
+  }
+
+  .plan-card__features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .plan-card__cta {
+    width: 100%;
+  }
+
+  @media (min-width: 860px) {
+    .pricing__grid {
+      grid-template-columns: repeat(3, 1fr);
+      align-items: start;
+    }
+    .plan-card--highlight {
+      transform: translateY(-0.75rem);
+    }
+  }
+</style>
