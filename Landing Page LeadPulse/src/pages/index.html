@@ -161,10 +161,7 @@
   #nav { position: fixed; z-index: 50; top: 0.875rem; left: 0; right: 0; padding-inline: var(--space-1); color: var(--color-2); pointer-events: none; }
   #nav .nav__bar { display: flex; align-items: center; gap: 1.75rem; max-width: 84rem; margin-inline: auto; padding: 0.4375rem 0.4375rem 0.4375rem 1.25rem; border: 0.0625rem solid color-mix(in srgb, var(--color-2) 12%, transparent); border-radius: var(--radius-3); background: color-mix(in srgb, var(--color-1) 80%, transparent); backdrop-filter: blur(0.875rem) saturate(1.3); pointer-events: auto; }
   #nav .nav__brand { display: inline-flex; align-items: center; gap: 0.625rem; text-decoration: none; }
-  #nav .nav__mark { width: 2.25rem; height: 1.5rem; fill: none; stroke-width: 3; stroke-linecap: round; }
-  #nav .nav__mark-a { stroke: var(--color-4); }
-  #nav .nav__mark-b { stroke: var(--color-2); }
-  #nav .nav__word { font-size: 1.375rem; }
+  #nav .nav__logo { display: block; height: 1.5rem; width: auto; }
   #nav .nav__links { display: flex; gap: 1.75rem; margin-left: auto; }
   #nav .nav__toggle { display: none; margin-left: auto; }
   #nav .menu { position: fixed; inset: 0; z-index: 60; display: flex; flex-direction: column; gap: 2.5rem; padding: 6.5rem var(--space-1) 2.5rem; overflow-y: auto; background: var(--color-1); color: var(--color-2); pointer-events: auto; }
@@ -813,9 +810,8 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
 <!-- navigation: top bar: logo, section links, Get-the-app button; phone menu overlay -->
 <header class="nav on-dark" id="nav" data-8b-section="navigation">
   <nav class="nav__bar" aria-label="Main">
-    <a class="nav__brand" href="#hero" aria-label="Linea, back to top">
-      <svg class="nav__mark" viewBox="0 0 40 28" aria-hidden="true"><path class="nav__mark-a" d="M3 19C10 5 17 5 21 14s11 9 16-6"/><path class="nav__mark-b" d="M3 10c7 13 14 13 18 4s11-10 16 5"/></svg>
-      <span class="nav__word m-text-5">Linea</span>
+    <a class="nav__brand" href="#hero" aria-label="LeadPulse, back to top">
+      <img src="/images/logo-leadpulse.png" alt="LeadPulse" class="nav__logo" width="196" height="33" />
     </a>
     <ul class="nav__links m-text-6" data-8b-items=":scope > li">
       <li><a class="m-link-2" href="#listen">How it works</a></li>
@@ -825,7 +821,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
       <li><a class="m-link-2" href="#faq">Questions</a></li>
       <li><a class="m-link-2" href="#contact">Contact</a></li>
     </ul>
-    <a class="m-btn-3 nav__cta" href="#start"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+    <a class="m-btn-3 nav__cta" href="#start"><span class="m-btn__label">Get LeadPulse free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
     <button class="m-icon-btn nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg></button>
   </nav>
   <div class="menu" id="menu" hidden role="dialog" aria-modal="true" aria-label="Menu">
@@ -838,7 +834,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
       <li><a class="m-link-2" href="#faq">Questions</a></li>
       <li><a class="m-link-2" href="#contact">Contact</a></li>
     </ul>
-    <a class="m-btn" href="#start"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+    <a class="m-btn" href="#start"><span class="m-btn__label">Get LeadPulse free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
   </div>
 </header>
 
@@ -873,7 +869,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
           <li><svg viewBox="0 0 16 16" aria-hidden="true"><path class="hero__tick" d="M3 8.5l3 3 7-7"/></svg>Private on your phone</li>
         </ul>
         <div class="hero__actions">
-          <a class="m-btn" href="#start"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+          <a class="m-btn" href="#start"><span class="m-btn__label">Get LeadPulse free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
           <a class="m-link m-text-6" href="#listen">See how it works</a>
         </div>
       </div>
@@ -1148,7 +1144,7 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
       <h2 class="m-text-3" id="start-title" data-8b-split="words">Your next call can be the easy one.</h2>
       <p class="m-text-4">Free for people with hearing loss. Ready in five minutes on the phone you already own.</p>
       <div class="start__actions">
-        <a class="m-btn" href="#hero"><span class="m-btn__label">Get Linea free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
+        <a class="m-btn" href="#hero"><span class="m-btn__label">Get LeadPulse free</span><span class="m-btn__wave" aria-hidden="true"><i></i><i></i><i></i></span></a>
         <a class="m-link m-text-6" href="#contact">Talk to our team</a>
       </div>
     </div>
@@ -1199,10 +1195,10 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
     </div>
     <div class="footer__brand" aria-hidden="true">
       <svg class="footer__logo" viewBox="0 0 40 28"><path class="footer__logo-a" pathLength="1" d="M3 19C10 5 17 5 21 14s11 9 16-6"/><path class="footer__logo-b" pathLength="1" d="M3 10c7 13 14 13 18 4s11-10 16 5"/></svg>
-      <p class="footer__word m-text-2" style="--len:5">Linea</p>
+      <p class="footer__word m-text-2" style="--len:9">LeadPulse</p>
     </div>
     <div class="footer__legal m-text-7">
-      <p>© 2026 Linea Inc. All rights reserved. · Design: <a href="https://8b.com/" style="color:inherit" data-8b-credit>8B</a></p>
+      <p>© 2026 LeadPulse Inc. All rights reserved. · Design: <a href="https://8b.com/" style="color:inherit" data-8b-credit>8B</a></p>
       <ul data-8b-items=":scope > li"><li><a class="m-link" href="#hero">Privacy</a></li><li><a class="m-link" href="#hero">Terms</a></li><li><a class="m-link" href="#hero">Emergency calling</a></li></ul>
     </div>
     <p class="footer__note m-text-7">Captioned calling through Linea is intended for people with hearing loss. Emergency calls placed through Linea work differently from a landline; keep your registered address up to date.</p>
