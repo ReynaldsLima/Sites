@@ -270,7 +270,7 @@
   #listen .listen__word { color: var(--color-2); }
   @media (max-width: 47.99rem) {
     #listen .listen__head { grid-template-columns: 1fr; }
-    #listen .listen__panels { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; height: min(74vh, 36rem); }
+    #listen .listen__panels { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; height: min(150vh, 60rem); }
     #listen .listen__panel--read { grid-row: 1; border-radius: var(--radius-2) var(--radius-2) 0 0; }
     #listen .listen__panel--voice { grid-row: 2; border-radius: 0 0 var(--radius-2) var(--radius-2); }
     #listen .listen__label { top: auto; bottom: 1.125rem; left: 1.25rem; }
@@ -279,13 +279,13 @@
     #listen .listen__track { left: 0; right: 0; width: auto; top: 0; bottom: auto; height: 200%; }
     #listen .listen__track--voice { top: -100%; }
     #listen .listen__row { left: 1.25rem; max-width: calc(100% - 2.5rem); }
-    #listen .listen__row:nth-child(1) { top: 2%; }
-    #listen .listen__row:nth-child(2) { top: 10.5%; }
-    #listen .listen__row:nth-child(3) { top: 19%; }
-    #listen .listen__row:nth-child(4) { top: 27.5%; }
-    #listen .listen__row:nth-child(5) { top: 36%; }
-    #listen .listen__row:nth-child(6) { top: 44.5%; }
-    #listen .listen__row .m-caption { font-size: 0.875rem; }
+    #listen .listen__row:nth-child(1) { top: 1%; }
+    #listen .listen__row:nth-child(2) { top: 11%; }
+    #listen .listen__row:nth-child(3) { top: 21%; }
+    #listen .listen__row:nth-child(4) { top: 31%; }
+    #listen .listen__row:nth-child(5) { top: 41%; }
+    #listen .listen__row:nth-child(6) { top: 55%; }
+    #listen .listen__row .m-caption { font-size: 0.8125rem; }
   }
 }
 </style>
@@ -890,12 +890,12 @@ if (matchMedia('(prefers-reduced-motion: no-preference)').matches && CSS.support
         <div class="listen__panel listen__panel--read">
           <p class="m-text-6 listen__label">You read</p>
           <div class="listen__track listen__track--read" data-8b-items=":scope > .listen__row" data-8b-fixed="6">
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Captação</span></p></div>
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Marketing</span></p></div>
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Atendimento</span></p></div>
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Vendas</span></p></div>
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Pós-venda</span></p></div>
-            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Gestão</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Integração com Meta e Google</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Campanhas de e-mail e WhatsApp</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Agentes IA de atendimento</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Vendas automáticas com integração Kiwify</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Atendimento pós-venda para suporte ao produto ou serviço</span></p></div>
+            <div class="listen__row"><p class="m-caption"><span class="m-caption__wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="m-caption__text">Gestão de todo o fluxo de processos da sua empresa</span></p></div>
           </div>
         </div>
       </div>
@@ -1453,11 +1453,12 @@ motionKit.scene('listen', () => {
   const voiceTrack = root.querySelector('.listen__track--voice');
   const rows = [...root.querySelectorAll('.listen__track--read > .listen__row')];
   const wide = matchMedia('(min-width: 48rem)');
+  const voiceLabels = ['Captação', 'Marketing', 'Atendimento', 'Vendas', 'Pós-venda', 'Gestão'];
   const pairs = rows.map((row, index) => {
     const clone = row.cloneNode(true);
     clone.classList.add('listen__row--voice');
     const text = clone.querySelector('.m-caption__text');
-    const words = text.textContent.trim().split(/\s+/);
+    const words = (voiceLabels[index] || text.textContent.trim()).split(/\s+/);
     text.textContent = '';
     words.forEach((word, i) => {
       const span = document.createElement('span');
